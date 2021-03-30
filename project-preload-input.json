@@ -1,0 +1,22 @@
+{
+    "demos": [
+        {
+            "name": "default",
+            "projects": [
+                {
+                    "baseName": "mortgage-analysis",
+                    "fileLocation": "template-projects/Automated-AI-Project-3.0.zip"
+                }
+            ]
+        },
+        {
+            "name": "mortgage001",
+            "projects": [
+                {
+                    "baseName": "mortgage-analysis",
+                    "fileLocation": "template-projects/Automated-AI-Project-3.0.zip"
+                }
+            ]
+        }
+    ]
+}
