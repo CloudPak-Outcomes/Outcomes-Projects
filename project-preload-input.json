@@ -1,6 +1,7 @@
 {
     "demos": [
         {
+            "comment": "default project set loaded when import_projects is True and demo_name is not provided",
             "name": "default",
             "projects": [
                 {
@@ -10,6 +11,7 @@
             ]
         },
         {
+            "comment": "Mortgage analysis from the experiences decommissioned system",
             "name": "mortgage001",
             "projects": [
                 {
