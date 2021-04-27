@@ -5,31 +5,31 @@
             "name": "default",
             "projects": [
                 {
-                    "baseName": "mortgage-default",
+                    "baseName": "Mortgage Default",
                     "fileLocation": "template-projects/Mortgage-Default.zip"
                 },
                 {
-                    "baseName": "employee-attrition",
+                    "baseName": "Employee Attrition",
                     "fileLocation": "template-projects/Employee-Attrition.zip"
                 }
             ]
         },
         {
             "comment": "Mortgage analysis from the experiences decommissioned system",
-            "name": "mortgage-default",
+            "name": "Mortgage Default",
             "projects": [
                 {
-                    "baseName": "mortgage-default",
+                    "baseName": "Mortgage Default",
                     "fileLocation": "template-projects/Mortgage-Default.zip"
                 }
             ]
         },
         {
             "comment": "Employee attrition demo from the tech-enablement predict group",
-            "name": "employee-attrition",
+            "name": "Employee Attrition",
             "projects": [
                 {
-                    "baseName": "employee-attrition",
+                    "baseName": "Employee Attrition",
                     "fileLocation": "template-projects/Employee-Attrition.zip"
                 }
             ]
