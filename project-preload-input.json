@@ -6,11 +6,13 @@
             "projects": [
                 {
                     "baseName": "Mortgage Default",
-                    "fileLocation": "template-projects/Mortgage-Default.zip"
+                    "fileLocation": "template-projects/Mortgage-Default.zip",
+                    "description": "Morgage default analysis"
                 },
                 {
                     "baseName": "Employee Attrition",
-                    "fileLocation": "template-projects/Employee-Attrition.zip"
+                    "fileLocation": "template-projects/Employee-Attrition.zip",
+                    "description": "Employee attrition prediction"
                 }
             ]
         },
@@ -20,7 +22,8 @@
             "projects": [
                 {
                     "baseName": "Mortgage Default",
-                    "fileLocation": "template-projects/Mortgage-Default.zip"
+                    "fileLocation": "template-projects/Mortgage-Default.zip",
+                    "description": "Morgage default analysis"
                 }
             ]
         },
@@ -30,7 +33,8 @@
             "projects": [
                 {
                     "baseName": "Employee Attrition",
-                    "fileLocation": "template-projects/Employee-Attrition.zip"
+                    "fileLocation": "template-projects/Employee-Attrition.zip",
+                    "description": "Employee attrition prediction"
                 }
             ]
         }
