@@ -37,6 +37,17 @@
                     "description": "Employee attrition prediction"
                 }
             ]
+        },
+        {
+            "comment": "DSE customer segmentation project",
+            "name": "DSE",
+            "projects": [
+                {
+                    "baseName": "Customer Segmentation Analytics",
+                    "fileLocation": "template-projects/customer-segmentation-analytics-project.zip",
+                    "description": "DSE Customer Segmentation Analytics"
+                }
+            ]
         }
     ]
 }
