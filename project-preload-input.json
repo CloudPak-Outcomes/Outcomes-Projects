@@ -17,6 +17,22 @@
             ]
         },
         {
+            "comment": "default labs projects set loaded when import_projects is True and demo_name is not provided",
+            "name": "labs",
+            "projects": [
+                {
+                    "baseName": "Mortgage Default",
+                    "fileLocation": "template-projects/Mortgage-Default.zip",
+                    "description": "Morgage default analysis"
+                },
+                {
+                    "baseName": "Employee Attrition",
+                    "fileLocation": "template-projects/Employee-Attrition.zip",
+                    "description": "Employee attrition prediction"
+                }
+            ]
+        },
+        {
             "comment": "Mortgage analysis from the experiences decommissioned system",
             "name": "Mortgage Default",
             "projects": [
