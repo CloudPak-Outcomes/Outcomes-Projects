@@ -7,12 +7,12 @@
                 {
                     "baseName": "Mortgage Default",
                     "fileLocation": "template-projects/Mortgage-Default.zip",
-                    "description": "Morgage default analysis"
+                    "description": "Analyze and predict the potential risk of loan applicants defaulting on their mortgage loans."
                 },
                 {
                     "baseName": "Employee Attrition",
                     "fileLocation": "template-projects/Employee-Attrition.zip",
-                    "description": "Employee attrition prediction"
+                    "description": "Analyze and predict the reasons and potential risk of employees leaving the company."
                 }
             ]
         },
@@ -23,12 +23,12 @@
                 {
                     "baseName": "Mortgage Default",
                     "fileLocation": "template-projects/Mortgage-Default.zip",
-                    "description": "Morgage default analysis"
+                    "description": "Analyze and predict the potential risk of loan applicants defaulting on their mortgage loans."
                 },
                 {
                     "baseName": "Employee Attrition",
                     "fileLocation": "template-projects/Employee-Attrition.zip",
-                    "description": "Employee attrition prediction"
+                    "description": "Analyze and predict the reasons and potential risk of employees leaving the company."
                 }
             ]
         },
@@ -39,7 +39,7 @@
                 {
                     "baseName": "Mortgage Default",
                     "fileLocation": "template-projects/Mortgage-Default.zip",
-                    "description": "Morgage default analysis"
+                    "description": "Analyze and predict the potential risk of loan applicants defaulting on their mortgage loans."
                 }
             ]
         },
@@ -50,7 +50,7 @@
                 {
                     "baseName": "Employee Attrition",
                     "fileLocation": "template-projects/Employee-Attrition.zip",
-                    "description": "Employee attrition prediction"
+                    "description": "Analyze and predict the reasons and potential risk of employees leaving the company."
                 }
             ]
         },
