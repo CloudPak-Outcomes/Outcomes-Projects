@@ -59,27 +59,27 @@
             "name": "DSE",
             "projects": [
                 {
-                    "baseName": "Customer Segmentation Analytics",
+                    "baseName": "Customer Segmentation",
                     "fileLocation": "template-projects/customer-segmentation-analytics-project.zip",
                     "description": "DSE Customer Segmentation Analytics"
                 },
                 {
-                    "baseName": "Customer Attrition Analytics",
+                    "baseName": "Customer Attrition",
                     "fileLocation": "template-projects/customer-attrition-analytics-project.zip",
                     "description": "DSE Customer Attrition Analytics"
                 },
                 {
-                    "baseName": "Life Event Analytics",
+                    "baseName": "Life Event",
                     "fileLocation": "template-projects/lifeEvent-analytics-project.zip",
                     "description": "DSE Life Event Analytics"
                 },
                 {
-                    "baseName": "Offer Affinity Analytics",
+                    "baseName": "Offer Affinity",
                     "fileLocation": "template-projects/OfferAffinity-analytics-project.zip",
                     "description": "DSE Offer Affinity Analytics"
                 },
                 {
-                    "baseName": "Intelligent Maintenance Analytics",
+                    "baseName": "Intelligent Maintenance",
                     "fileLocation": "template-projects/Intelligent-maintenance-analytics-project.zip",
                     "description": "DSE Intelligent Maintenance Analytics"
                 },
