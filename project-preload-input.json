@@ -70,7 +70,7 @@
                 },
                 {
                     "baseName": "Life Event",
-                    "fileLocation": "template-projects/lifeEvent-analytics-project.zip",
+                    "fileLocation": "template-projects/LifeEvent-analytics-project.zip",
                     "description": "DSE Life Event Analytics"
                 },
                 {
@@ -82,7 +82,7 @@
                     "baseName": "Intelligent Maintenance",
                     "fileLocation": "template-projects/Intelligent-maintenance-analytics-project.zip",
                     "description": "DSE Intelligent Maintenance Analytics"
-                },
+                }
             ]
         }
     ]
