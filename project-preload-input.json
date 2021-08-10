@@ -82,6 +82,11 @@
                     "baseName": "Intelligent Maintenance",
                     "fileLocation": "template-projects/Intelligent-maintenance-analytics-project.zip",
                     "description": "DSE Intelligent Maintenance Analytics"
+                },
+                {
+                    "baseName": "Claims Leakage",
+                    "fileLocation": "template-projects/ClaimsLeakage-analytics-project.zip",
+                    "description": "DSE Claims Leakage"
                 }
             ]
         }
