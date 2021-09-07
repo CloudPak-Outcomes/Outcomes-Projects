@@ -87,6 +87,16 @@
                     "baseName": "Claims Leakage",
                     "fileLocation": "template-projects/ClaimsLeakage-analytics-project.zip",
                     "description": "DSE Claims Leakage"
+                },
+                {
+                    "baseName": "SME Banking",
+                    "fileLocation": "template-projects/SMEBanking-analytics-project.zip",
+                    "description": "DSE SME Banking"
+                },
+                {
+                    "baseName": "Supply Chain",
+                    "fileLocation": "template-projects/SupplyChain-analytics-project.zip",
+                    "description": "DSE Supply Chain"
                 }
             ]
         }
