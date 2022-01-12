@@ -97,6 +97,11 @@
                     "baseName": "Supply Chain",
                     "fileLocation": "template-projects/SupplyChain-analytics-project.zip",
                     "description": "DSE Supply Chain"
+                },
+                {
+                    "baseName": "Utilities Payment Risk",
+                    "fileLocation": "template-projects/UtilitiesPaymentRisk-analytics-project.zip",
+                    "description": "DSE Utilities Payment Risk"
                 }
             ]
         }
