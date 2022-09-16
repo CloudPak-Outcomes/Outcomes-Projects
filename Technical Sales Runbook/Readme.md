@@ -1027,13 +1027,12 @@ You should see 1 published policy named **Protection of Sensitive Personal Infor
  
 * Name = Amazon Object Storage
 * Description = **Amazon S3 Object Storage bucket that contains data files used for analytics and AI.** (including the period at the end)
-* Bucket = cpd-outcomes-s3
-* Endpoint URL = https://s3.us-east-2.amazonaws.com
-* Region = us-east-2
-* Credentials = Shared
+* Bucket = **Your Bucket**
+* Endpoint URL = **Your URL**
+* Region = **Your Regsion**
 * Authentication method = Basic credentials
-* Access key = AKIA2EJTDLF7QCA4EK4P
-* Secret key = 1EJS6HwgUar8irr6qNJzDeYj0ccuV0YAs7dUP9qF
+* Access key = **Your Access Key**
+* Secret key = **Your Secret Key**
 
 6. Click **Create**.
 
