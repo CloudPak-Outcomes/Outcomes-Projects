@@ -1,0 +1,163 @@
+# ================================
+# Insurance demo tables
+# ================================
+#
+CREATE TABLE INSURANCE.INSURANCE_HOUSEHOLD (
+  HOUSEHOLD_ID            CHAR(7) NOT NULL PRIMARY KEY,
+  ADDR_STREET_NUMBER      VARCHAR(12),
+  ADDR_STREET_NAME        VARCHAR(60),
+  ADDR_UNIT_DESIGNATION   VARCHAR(10),
+  ADDR_UNIT_NUMBER        VARCHAR(10),
+  CITY                    VARCHAR(30),
+  STATE                   CHAR(2),
+  ZIPCODE                 CHAR(5),
+  FIPS                    CHAR(16),
+  LATITUDE                DOUBLE,
+  LONGITUDE               DOUBLE,
+  PBKEY                   CHAR(12)
+);
+
+CREATE TABLE INSURANCE.INSURANCE_DRIVER (
+  HOUSEHOLD_ID                CHAR(7) NOT NULL,
+  DRIVER_ID                   CHAR(7) NOT NULL,
+  FIRST_NAME                  VARCHAR(30),
+  LAST_NAME                   VARCHAR(30),
+  GENDER                      CHAR(1),
+  BIRTHDATE                   DATE,
+  SSN                         VARCHAR(12),
+  DRIVERS_LICENSE_ID          VARCHAR(14),
+  DRIVERS_LICENSE_EXPIRY      DATE,
+  DRIVERS_LICENSE_STATE       VARCHAR(2),
+  DATE_AT_CURRENT_ADDRESS     DATE,
+  CONTACT_NUMBER              CHAR(13),
+  EMAIL                       VARCHAR(60),
+  COMMUTE_DISCOUNT            SMALLINT,
+  WORK_ADDR_NUMB              VARCHAR(12),
+  WORK_ADDR_STREET_NAME       VARCHAR(60),
+  WORK_ADDR_UNIT_DESIGNATION  VARCHAR(10),
+  WORK_ADDR_UNIT_NUMBER       VARCHAR(10),
+  WORK_ADDR_CITY              VARCHAR(30),
+  WORK_ADDR_STATE             CHAR(2),
+  WORK_ADDR_ZIPCODE           CHAR(5),
+  WORK_ADDR_LATITUDE          DOUBLE,
+  WORK_ADDR_LONGITUDE         DOUBLE,
+  WORK_ADDR_PBKEY             CHAR(12),
+  PRIMARY KEY(HOUSEHOLD_ID, DRIVER_ID)
+);
+
+CREATE TABLE INSURANCE.INSURANCE_POLICY (
+  HOUSEHOLD_ID       CHAR(7) NOT NULL,
+  PRIMARY_DRIVER_ID  CHAR(7) NOT NULL,
+  POLICY_ID          CHAR(9) NOT NULL,
+  START_DATE         DATE    NOT NULL,
+  EXPIRY_DATE        DATE    NOT NULL,
+  MODEL_YEAR         INTEGER,
+  MAKE               VARCHAR(15),
+  MODEL              VARCHAR(20),
+  PLATE              VARCHAR(10),
+  COLOR              VARCHAR(20),
+  INITIAL_ODOMETER   DECIMAL(10,1),
+  LOW_MILEAGE_USE    CHAR(1),
+  PRIMARY KEY(HOUSEHOLD_ID,PRIMARY_DRIVER_ID,POLICY_ID)
+);
+
+CREATE TABLE INSURANCE.INSURANCE_INCIDENT_CAUSE (
+  INCIDENT_ID    INTEGER  NOT NULL,
+  DESCRIPTION    VARCHAR(30)
+) ORGANIZED BY ROW;
+
+insert into insurance.insurance_incident_cause(incident_id, description) 
+            values(1, 'Driver error');
+insert into insurance.insurance_incident_cause(incident_id, description) 
+            values(2, 'Natural causes');
+insert into insurance.insurance_incident_cause(incident_id, description) 
+            values(3, 'Other driver error');
+insert into insurance.insurance_incident_cause(incident_id, description) values(4, 'Crime');
+insert into insurance.insurance_incident_cause(incident_id, description) values(5, 'Other causes');
+
+CREATE TABLE INSURANCE.INSURANCE_CLAIM (
+  HOUSEHOLD_ID         CHAR(7) NOT NULL,
+  DRIVER_ID            CHAR(7) NOT NULL,
+  POLICY_ID            CHAR(9) NOT NULL,
+  CLAIM_ID             CHAR(12) NOT NULL,
+  INCIDENT_CAUSE       SMALLINT,
+  DESCRIPTION          VARCHAR(1024),
+  CLAIM_STATUS         SMALLINT,
+  ODOMETER_AT_LOSS     DECIMAL(10,1),
+  LOSS_EVENT_TIME      TIMESTAMP,
+  CLAIM_INIT_TIME      TIMESTAMP,
+  POLICE_REPORT        SMALLINT,
+  CLAIMS_AT_LOSS_DATE  INTEGER,
+  LOSS_LOCATION_LAT    DOUBLE,
+  LOSS_LOCATION_LONG   DOUBLE,
+  CLAIM_AMOUNT         DECIMAL(10,2),
+  FLAG_FOR_FRAUD_INV   SMALLINT,
+  PRIMARY KEY(HOUSEHOLD_ID,POLICY_ID,CLAIM_ID)
+);
+
+CREATE TABLE INSURANCE.INSURANCE_CLAIM_DETAIL (
+  HOUSEHOLD_ID                CHAR(7) NOT NULL,
+  DRIVER_ID                   CHAR(7) NOT NULL,
+  POLICY_ID                   CHAR(9) NOT NULL,
+  CLAIM_ID                    CHAR(12) NOT NULL,
+  INCIDENT_CAUSE              SMALLINT,
+  DESCRIPTION                 VARCHAR(1024),
+  CLAIM_STATUS                SMALLINT,
+  ODOMETER_AT_LOSS            DECIMAL(10,1),
+  LOSS_EVENT_TIME             TIMESTAMP,
+  CLAIM_INIT_TIME             TIMESTAMP,
+  POLICE_REPORT               SMALLINT,
+  CLAIMS_AT_LOSS_DATE         INTEGER,
+  LOSS_LOCATION_LAT           DOUBLE,
+  LOSS_LOCATION_LONG          DOUBLE,
+  CLAIM_AMOUNT                DECIMAL(10,2),
+  FLAG_FOR_FRAUD_INV          SMALLINT,
+  PRIMARY_DRIVER_ID           CHAR(7),
+  START_DATE                  DATE,
+  EXPIRY_DATE                 DATE,
+  MODEL_YEAR                  INTEGER,
+  MAKE                        VARCHAR(15),
+  MODEL                       VARCHAR(20),
+  PLATE                       VARCHAR(10),
+  COLOR                       VARCHAR(20),
+  INITIAL_ODOMETER            DECIMAL(10,1),
+  LOW_MILEAGE_USE             SMALLINT,
+  FIRST_NAME                  VARCHAR(30),
+  LAST_NAME                   VARCHAR(30),
+  GENDER                      CHAR(1),
+  BIRTHDATE                   DATE,
+  SSN                         VARCHAR(12),
+  DRIVERS_LICENSE_ID          VARCHAR(14),
+  DRIVERS_LICENSE_EXPIRY      DATE,
+  DRIVERS_LICENSE_STATE       VARCHAR(2),
+  DATE_AT_CURRENT_ADDRESS     DATE,
+  CONTACT_NUMBER              CHAR(13),
+  EMAIL                       VARCHAR(60),
+  COMMUTE_DISCOUNT            SMALLINT,
+  WORK_ADDR_NUMB              VARCHAR(12),
+  WORK_ADDR_STREET_NAME       VARCHAR(60),
+  WORK_ADDR_UNIT_DESIGNATION  VARCHAR(10),
+  WORK_ADDR_UNIT_NUMBER       VARCHAR(10),
+  WORK_ADDR_CITY              VARCHAR(30),
+  WORK_ADDR_STATE             CHAR(2),
+  WORK_ADDR_ZIPCODE           CHAR(5),
+  WORK_ADDR_LATITUDE          DOUBLE,
+  WORK_ADDR_LONGITUDE         DOUBLE,
+  WORK_ADDR_PBKEY             CHAR(12),
+  ADDR_STREET_NUMBER          VARCHAR(12),
+  ADDR_STREET_NAME            VARCHAR(60),
+  ADDR_UNIT_DESIGNATION       VARCHAR(10),
+  ADDR_UNIT_NUMBER            VARCHAR(10),
+  CITY                        VARCHAR(30),
+  STATE                       CHAR(2),
+  ZIPCODE                     CHAR(5),
+  LATITUDE                    DOUBLE,
+  LONGITUDE                   DOUBLE,
+  PBKEY                       CHAR(12),
+  PRIMARY KEY(HOUSEHOLD_ID,DRIVER_ID,POLICY_ID,CLAIM_ID)
+);
+
+CREATE TABLE INSURANCE.INSURANCE_CLAIM_STATUS (
+  STATUS_ID     INTEGER NOT NULL PRIMARY KEY,
+  DESCRIPTION   VARCHAR(30)
+);
