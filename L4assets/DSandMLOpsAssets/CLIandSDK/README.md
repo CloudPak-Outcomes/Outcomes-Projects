@@ -1,2 +1,2 @@
-# Commmand line interface and SDKs
-Assets ofr this sections of the L4 class
+# Command line interface and SDKs
+Assets for this sections of the L4 class
