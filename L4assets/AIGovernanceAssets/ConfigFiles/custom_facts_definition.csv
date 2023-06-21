@@ -1,0 +1,4 @@
+﻿name,type,description,placeholder,is_array,required,hidden,readonly,default_value,label,minimum,maximum,min_length,max_length,is_searchable
+Evaluation_date,date,Date of evaluation run,Evaluation_date,False,False,False,False,0,Evaluation_date,,,,,True
+RMSE,integer,Root Mean Squared Error score,RMSE,False,False,False,False,0,RMSE,,,,,True
+r2,integer,Coefficient of determination score,r2,False,False,False,False,0,r2,,,,,True
