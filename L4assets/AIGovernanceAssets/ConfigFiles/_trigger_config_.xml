@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<trigger-definitions>
+	<grcTrigger name="Add RabbitMQ Event On Model Create" event="create.object" position="POST">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Model"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Model Update" event="update.object" position="POST">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Model"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Model Delete" event="delete.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Model"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Model Associate" event="associate.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Model"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Model Disassociate" event="disassociate.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Model"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Register Create" event="create.object" position="POST">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Register"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Register Update" event="update.object" position="POST">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Register"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Register Delete" event="delete.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Register"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Register Associate" event="associate.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Register"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Register Disassociate" event="disassociate.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Register"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+	<grcTrigger name="Add RabbitMQ Event On Usage Delete" event="delete.objects" position="PRE">
+		<rule class="com.ibm.openpages.api.trigger.oob.ContentTypeMatchRule">
+			<attribute name="content.type" value="Usage"/>
+		</rule>
+		<eventHandler class="com.ibm.openpages.api.trigger.oob.messaging.RabbitMQObjectChangeEventHandler">
+			        </eventHandler>
+	</grcTrigger>
+</trigger-definitions>
