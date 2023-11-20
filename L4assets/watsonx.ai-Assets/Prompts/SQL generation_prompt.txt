@@ -1,0 +1,29 @@
+SQL generation Prompt
+
+Try these prompts with starcoder, max tokens - 300
+
+
+Prompt 1
+
+NorthStar has a database with a table named outdoor_equip_sales_data containing sales records. The table has following columns:
+- date (YYYY-MM-DD)
+- product_id
+- price
+- units_sold
+
+Can you generate SQL queries for the below: 
+- Identify the top 5 best selling products by total sales for the year 2023
+- Calculate the monthly average sales for the year 2023
+
+
+Prompt 2
+
+NorthStar has a database with a table named outdoor_equip_sales_data containing sales records. The table has following columns:
+- date (YYYY-MM-DD)
+- product_id
+- price
+- units_sold
+
+Generate SQL queries to: 
+- Identify the top 5 best selling products by total sales for the year 2023
+- Calculate the monthly average sales for the year 2023
