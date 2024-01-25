@@ -1,0 +1,200 @@
+{"input":"I can't find any instructions in English.","output":"Packaging"}
+{"input":"I am missing some of the parts.","output":"Warehouse, Packaging"}
+{"input":"There is no instruction on how to assemble the foundation.","output":"Packaging"}
+{"input":"The product is not working out-of-box.","output":"Development"}
+{"input":"Your product broke after 2 weeks of usage!","output":"Service, Development"}
+{"input":"This product does not work as advertised!","output":"Marketing, Development"}
+{"input":"Some of the parts are scratched up even though the package looks to be new.","output":"Packaging"}
+{"input":"The top speed I get is much lower than what you say in your marketing material.","output":"Development, Marketing"}
+{"input":"This does not look anything like what you have on your website.","output":"Planning, Marketing"}
+{"input":"This does not do the job, it's just not the right tool as your brochure suggested","output":"Planning, Development, Marketing"}
+{"input":"You shipped me a product that requires 220 V and it does not work here in Canada!","output":"Planning, Packaging"}
+{"input":"The resolution of your projector is so bad, totally useless.","output":"Planning, Development"}
+{"input":"The joints shipped with the product break easily, and now I can't assemble it.","output":"Planning, Service, Development"}
+{"input":"Why does your advertisement show a royal blue unit but you shipped me a red one?","output":"Packaging, Marketing"}
+{"input":"This is so flimsy! It can't support my weight.","output":"Planning, Development"}
+{"input":"Your product is useless. I used double of the recommended portion and still it can't clean properly.","output":"Planning, Development"}
+{"input":"My laundry still stinks after washing with your product.","output":"Development"}
+{"input":"The LED display is so faint, I can't read it at all.","output":"Planning, Development"}
+{"input":"I can't insert the memory card, it just won't hold it.","output":"Planning, Development"}
+{"input":"I was given the impression that the 5-speed version is out, but I don't see anything from your catalogue","output":"Planning, Marketing"}
+{"input":"OK, when you say multi-language, you just mean English and French. It's misleading and we need more - German, Spanish, Japanese to start","output":"Planning, Marketing"}
+{"input":"I am surprised that you actually don't have domain-specific models - you talk about the importance of that all the time.","output":"Planning, Marketing"}
+{"input":"Why do you keep talking about the importance of a vector database but you don't offer one!","output":"Planning, Marketing"}
+{"input":"The drawers are too wide, you need internal dividers for it to be practical.","output":"Planning, Development"}
+{"input":"I see you listed 5 models on your poster, but none of your dealerships have all of them.","output":"Planning, Marketing"}
+{"input":"In your online call we were told that your platform can do summarization, but it is not listed in your actual product.","output":"Planning, Marketing"}
+{"input":"Your product page mentions Amazon Web Services all the time, but your product is not available from Amazon's marketplace?","output":"Planning, Marketing"}
+{"input":"Why are you talking about prompt tuning all the time when it is not available from your product?","output":"Planning, Marketing"}
+{"input":"I cannot find the red model on your catalogue - that was so prominent in your posters.","output":"Planning, Marketing"}
+{"input":"The suction cup you provided is totally useless, won't attach to my windshield at all!","output":"Planning, Development"}
+{"input":"There are no tools that came with the box? How can I assemble the product?","output":"Planning, Packaging"}
+{"input":"There are multiple missing parts from the package.","output":"Warehouse, Packaging"}
+{"input":"It is much shorter than I saw from your commercials.","output":"Planning, Marketing"}
+{"input":"Why can't this product cut through concrete?","output":"Planning, Development"}
+{"input":"The engine gets too hot when we run it.","output":"Planning, Development"}
+{"input":"I bought the top of the line but it is out-performed by my old model","output":"Planning, Development"}
+{"input":"Why does the battery have such a short lifespan?","output":"Planning, Development"}
+{"input":"The wheels on this bike do not align properly.","output":"Planning, Development"}
+{"input":"The pattern on the side is crooked.","output":"Planning, Development"}
+{"input":"Why does this have a nasty diesel smell?","output":"Planning, Development"}
+{"input":"I don't like the sound it makes when it runs.","output":"Planning, Development"}
+{"input":"Where is my warranty card? can't find it in the box.","output":"Packaging"}
+{"input":"This thing just does not perform.","output":"Planning, Development"}
+{"input":"There are not enough screws available to assemble the product.","output":"Warehouse, Packaging"}
+{"input":"I just bought it today but half the oranges in the box are rotten!","output":"Planning, Warehouse"}
+{"input":"I was put on hold for 30 minutes!","output":"Service"}
+{"input":"I am so sick of hearing the elevator music waiting for someone to come online.","output":"Service"}
+{"input":"I was put on hold for 50 minutes!","output":"Service"}
+{"input":"I called 10 times and every time there is a robot at the other end!","output":"Service"}
+{"input":"I am returning the product because I waited 50 minutes and got no response.","output":"Service"}
+{"input":"I don't have time to wait on your long queue.","output":"Service"}
+{"input":"What do you mean you don't have it anymore?  My cousin just bought one last week!","output":"Warehouse, Planning"}
+{"input":"Why can't I order this anymore?","output":"Warehouse, Planning"}
+{"input":"I ordered 5 units and you shipped me only 2, where is the rest?","output":"Warehouse, Packaging"}
+{"input":"The shipment is supposed to have 6 units it in, but there were only 5","output":"Warehouse, Packaging"}
+{"input":"The Kron model you shipped me is missing 2 drawer handles!","output":"Warehouse, Packaging"}
+{"input":"I ordered a set of screwdriver bits, but there is no Robersons's in the lot.","output":"Warehouse, Packaging"}
+{"input":"I looked all over the box, but the user guide and the jig are missing.","output":"Warehouse, Packaging"}
+{"input":"You sent me the camera but there is no HD card that is shown on the box.","output":"Warehouse, Packaging"}
+{"input":"I can't find the mouth guard to the hockey set. It is useless without it.","output":"Warehouse, Packaging"}
+{"input":"Where is the fourth bedpost? It is not in the box.","output":"Warehouse, Packaging"}
+{"input":"Where are the 2 extra sets of sheets that are supposed to come with my order?","output":"Warehouse, Packaging"}
+{"input":"The assembly kit is missing the 6-in screws. It can't be used without them.","output":"Warehouse, Packaging"}
+{"input":"How come this item is grayed out for the whole month?","output":"Warehouse, Planning"}
+{"input":"It's the fifth time I called and you still don't have this item.","output":"Warehouse, Planning"}
+{"input":"I need this brand because I am allergic to your other ones!","output":"Warehouse, Planning"}
+{"input":"Come on, 4 weeks and you are still out of stock?","output":"Warehouse, Planning"}
+{"input":"What is wrong with your inventory system? How can this be still out of stock?","output":"Warehouse, Planning"}
+{"input":"What do you mean I can no longer get parts for this item?","output":"Warehouse, Planning"}
+{"input":"I have been using this for years, we depend on it, why is it no longer available?","output":"Warehouse, Planning"}
+{"input":"How come I can no longer order this model number?","output":"Warehouse, Planning"}
+{"input":"You must be crazy to discontinue this most popular model from your product line.","output":"Warehouse, Marketing, Planning"}
+{"input":"I called your rep and was told this is out of stock, why?","output":"Warehouse, Planning"}
+{"input":"I went to all your retail stores and still can't find this part!","output":"Warehouse, Planning"}
+{"input":"I ordered this piece online but it has not arrived after 3 weeks!","output":"Warehouse, Packaging"}
+{"input":"Your catalogue says it is available in yellow, so why can't I order it in yellow?","output":"Warehouse, Planning, Marketing"}
+{"input":"I don't want a refund, I want my purchased item!","output":"Warehouse, Packaging"}
+{"input":"Come on, you said it will be available in 4 months,  it is now 9 months.","output":"Warehouse, Packaging"}
+{"input":"I give up, I am going to another store as you just never have this item.","output":"Warehouse, Planning"}
+{"input":"This is listed on your flyers, the sale starts today, so how can you not have this item?","output":"Warehouse, Planning"}
+{"input":"This is nuts, every time you transfer me to a different agent I have to tell them everything from scratch","output":"Service"}
+{"input":"Look, get me the person who can fix this, I refuse to repeat my issues to people who can't fix my problem.","output":"Service"}
+{"input":"I NEED assistance when I call, I don't want to just waste time repeating myself!","output":"Service"}
+{"input":"Why do I need to describe my issues like 3 times in a single call?","output":"Service"}
+{"input":"Why are you asking me this again? Didn't the last person write all of it down?","output":"Service"}
+{"input":"Your product does not work, how many times do I have to say it?","output":"Service, Development"}
+{"input":"Forget it, clearly none of you know how to fix this.","output":"Service, L3"}
+{"input":"Yes, I tried all those steps already, twice now!","output":"Service"}
+{"input":"Your service team clearly does not have the skills to solve the simplest problems.","output":"Service, L3"}
+{"input":"I was told I was talking to an SME, but clearly it was not the case.","output":"Service, L3"}
+{"input":"I have enterprise-level support, and my dedicated service contact can't solve anything!","output":"Service, L3"}
+{"input":"Your rep told me what the cause was, and it was completely wrong!","output":"Service, L3"}
+{"input":"Well, the email I got with all the instructions, none of it work!","output":"Service, L3"}
+{"input":"Who do I have to talk to so I can get help? Your L3 support is useless.","output":"Service, L3"}
+{"input":"This is a level 3 support? I can read off a list just as well","output":"Service, L3"}
+{"input":"I was on the phone with your 'expert' for 3 hours and nothing was solved","output":"Service, L3"}
+{"input":"This is madness, I followed your steps and now the device is completely broken","output":"Service, L3"}
+{"input":"None of the steps you suggested work, in fact, it made it worse","output":"Service, L3"}
+{"input":"You are kidding, you want me to try to reproduce the steps?","output":"Service, L3"}
+{"input":"You keep transferring me to a different agent, and every time I have to repeat myself with no actual help provided!","output":"Service, L3"}
+{"input":"I already sent you all the details in an email, so why are you asking me for the same info?","output":"Service"}
+{"input":"I am filing a complaint, your rep just don't seem to care or know anything useful.","output":"Service, L3"}
+{"input":"How can your service rep hang up on me?","output":"Service"}
+{"input":"Why do I have to call 3 times just to get your rep to open a case file?","output":"Service"}
+{"input":"You need to hire people who are willing to listen to your customer!","output":"Service"}
+{"input":"Why do I have to repeat myself over and over again? Was your service rep not listening?","output":"Service"}
+{"input":"It is good to have a Return to main menu button.","output":"Planning, Development"}
+{"input":"Need support for 64-bit OS.","output":"Planning, Development"}
+{"input":"When will you support a MacOS version?","output":"Planning, Development"}
+{"input":"This product is good but is missing good logging capabilities.","output":"Planning, Development"}
+{"input":"We need a 2 phase commit capability for our use case.","output":"Planning, Development"}
+{"input":"When we define a pointer, the IDE needs to use a different pen color.","output":"Development"}
+{"input":"We need a way to track the list of downloaded files.","output":"Development"}
+{"input":"It would be great to have a screen capture capability.","output":"Development"}
+{"input":"From your JSON content panel, it would be good to launch a visualizer for the content.","output":"Planning, Development"}
+{"input":"Please support AVRO in addition to Parquet format.","output":"Planning, Development"}
+{"input":"It's difficult to understand why you don't have this in blue!","output":"Planning"}
+{"input":"The fridge door should be configurable to be opened in either direction.","output":"Planning, Development"}
+{"input":"We need domain-specific foundation models, especially for cybersecurity.","output":"Planning"}
+{"input":"I looked for the ability to track file lineage but I don't think you support it.","output":"Planning, Development, L3"}
+{"input":"You need to include an extension pole in your package. It's too short as it is.","output":"Planning, Packaging"}
+{"input":"We like to see a V8 version of your latest product.","output":"Planning"}
+{"input":"We are looking for these tools in metric, not just in feet and inches.","output":"Planning"}
+{"input":"Do you not have side bags available in your travel section?","output":"Planning"}
+{"input":"You need to carry eco-friendly product in your retail stores.","output":"Planning, Marketing"}
+{"input":"There are no books in your store on healthy diet.","output":"Planning"}
+{"input":"In addition to soil and mulch, we were also looking for peat moss.","output":"Planning"}
+{"input":"No, we didn't find everything we were looking for, you don't have smoke alarms.","output":"Planning"}
+{"input":"There are no 1.5 inch Robertson screws on your shelves.","output":"Planning, Warehouse"}
+{"input":"Can I get this drill with a longer snout?","output":"Planning"}
+{"input":"I can't believe you don't sell green peppers here in your store.","output":"Planning"}
+{"input":"I think it's a great idea if you add a tinted roof to your cars.","output":"Planning"}
+{"input":"Why do you not have all-wheel-drive?","output":"Planning, Development"}
+{"input":"You should put in new seat cushions to make it more comfortable for your riders.","output":"Planning"}
+{"input":"You need to put in a vegetarian section in your menu.","output":"Planning, Marketing"}
+{"input":"We need the following features to be added to your next release.","output":"Planning, Development"}
+{"input":"Can you create a new drone with a single rotary engine?","output":"Planning, Development"}
+{"input":"We need your drone to have a longer range � add at least 50 km.","output":"Planning, Development"}
+{"input":"Can you put a smaller camera on your drone?","output":"Planning"}
+{"input":"Your screen needs to be bigger and of better quality.","output":"Planning, Development"}
+{"input":"Why is there no backup camera?  Everyone has it.","output":"Planning"}
+{"input":"When will you come up with a front wheel drive version?","output":"Planning, Marketing, Development"}
+{"input":"Your coffee is good but would be better if you have a decaffeinated product.","output":"Planning, Marketing"}
+{"input":"Perhaps a bigger window would be better.","output":"Planning"}
+{"input":"You need to add a quiz to make this a better course.","output":"Planning"}
+{"input":"How come there is no size ten Robertson in your screwdriver bit set?","output":"Planning, Warehouse"}
+{"input":"Add a light to your drill?","output":"Planning"}
+{"input":"I called your support center 3 times before getting any help.","output":"Service, L3"}
+{"input":"Your first line support staff has no knowledge at all and it was a waste talking to them.","output":"Service, L3"}
+{"input":"You need to hire better level 1 staff. I had to escalate to your level 3 to get help.","output":"Service"}
+{"input":"I did everything your staff told me to do, and everything is still broken.","output":"Service, L3"}
+{"input":"I called and your staff said they will rectify it. It's a week now and I still have no access to my account","output":"Service"}
+{"input":"I was told a replacement will be sent, well nothing has arrived.","output":"Service, Packaging"}
+{"input":"I followed the instructions given to me to try to get it resolved, but the steps don't work.","output":"Service, L3"}
+{"input":"Why can't your first line support staff route me to the expert?  Why do they always have to call back?","output":"Service, L3"}
+{"input":"I can never get any useful help with the first call.","output":"Service, L3"}
+{"input":"You know, only your level 3 has any skills, the others are useless.","output":"Service, L3"}
+{"input":"Your first line support always goes through the same checklist before sending me to people who can actually help.","output":"Service, L3"}
+{"input":"Perhaps it would help if your first line support knows about the product instead of having to go get experts every time.","output":"Service, L3"}
+{"input":"I give up on calling your team. I always get more info with Google.","output":"Service, L3"}
+{"input":"Why can't you provide better training so your first line staff can actually answer questions?","output":"Service, L3"}
+{"input":"Look, I know how to find your documentation, telling me to check is pointless.","output":"Service"}
+{"input":"I never get useful feedback, suggestion, or resolution on a first call with you.","output":"Service"}
+{"input":"Your store staff gave me suggestions that are totally wrong, not even applicable to my model!","output":"Service, L3"}
+{"input":"I went back to your store and they told me to call 3 different numbers to get help!","output":"Service"}
+{"input":"You need this 2-phase commit feature in your product","output":"Planning, Development"}
+{"input":"How come your device does not perform an auto-reboot after an update?","output":"Planning, Development"}
+{"input":"You must be scalable to be enterprise-ready. It is not useable as it is.","output":"Planning, Development"}
+{"input":"All other companies provide automation, you are still behind.","output":"Planning, Development"}
+{"input":"I cannot believe that your product is only available in AWS and not Azure.","output":"Planning, Development"}
+{"input":"Your largest size still does not provide enough resources for real enterprise workload.","output":"Planning, Development"}
+{"input":"You need variable speed. No one can live with just hi-med-low","output":"Planning, Development"}
+{"input":"The X-frame you provide is not strong enough - it needs to be at least 3 inches across instead of 2.","output":"Planning, Development"}
+{"input":"Your console needs to remember the history of previous steps. It is unacceptable to have to type things in for every run.","output":"Planning, Development"}
+{"input":"You need a left-handed version for your scissors.","output":"Planning, Development"}
+{"input":"This is a bug in your code. It should never do this","output":"Development, Service"}
+{"input":"Your customer service should be called customer-router! They don't know anything and can't resolve anything.","output":"Service, L3"}
+{"input":"I had to call 3 times, talked to 5 persons before getting this resolved.","output":"Service, L3"}
+{"input":"I've been waiting 3 days for your SME to call back.","output":"Service, L3"}
+{"input":"Hello anyone actually checking what you are supposed to do to follow up?","output":"Service"}
+{"input":"I am going to your competitor, you never called me back.","output":"Service"}
+{"input":"When are you going to send me my reactivation code?","output":"Service"}
+{"input":"I wonder if you care for new business at all? I left my e-info and no one has contacted us.","output":"Service, Planning"}
+{"input":"Well it's been 3 days, who is supposed to call me to resolve this issue?","output":"Service, L3"}
+{"input":"Where is the replacement that I was promised?","output":"Service, L3"}
+{"input":"Your service guy never showed up.","output":"Service"}
+{"input":"Your staff did not bring a receipt and told me it would be dropped off in mail, that was 2 weeks ago.","output":"Service, L3"}
+{"input":"Look, don't ask me to leave you my number if you never intend to call back.","output":"Service, L3"}
+{"input":"Your shelves for oil are completely empty.","output":"Warehouse"}
+{"input":"You advertised a chainsaw for 100 dollars, but on your shelves, I see only the 200 variant.","output":"Warehouse, Marketing"}
+{"input":"There is no more generator in your store.","output":"Warehouse"}
+{"input":"You have trip-A and 9V batteries, but there is no AA size?","output":"Warehouse"}
+{"input":"I am looking for no-sugar beverages but you don't have any","output":"Warehouse, Planning"}
+{"input":"Why is there no aspirin from your pharmacy section?","output":"Warehouse, Planning"}
+{"input":"How is it possible that you ship me 2 left shoes in my order?","output":"Packaging"}
+{"input":"I asked for yellow markers, you shipped me red!!!","output":"Packaging"}
+{"input":"I did not order 5 pairs of shorts, only 2.","output":"Packaging"}
+{"input":"You sent me a table set with 4 chairs - but your brochure has 6","output":"Packaging, Marketing"}
+{"input":"The unit I received was all damaged. I want a refund","output":"Packaging, Service"}
+{"input":"I am missing 2 drawer handles from your last shipment.","output":"Packaging"}
