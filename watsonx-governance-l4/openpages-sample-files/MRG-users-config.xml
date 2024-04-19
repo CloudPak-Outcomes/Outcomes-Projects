@@ -59,7 +59,7 @@
     <administrators/>
     <actorObjectProfileAssociationSets>
         <actorObjectProfileAssociationSet name="BusinessExec">
-            <actorObjectProfileAssociation name="OpenPages MRG Master"/>
+            <actorObjectProfileAssociation name="watsonx-governance MRG Master"/>
         </actorObjectProfileAssociationSet>
         <actorObjectProfileAssociationSet name="ModelOwner">
             <actorObjectProfileAssociation name="MRG Model Owner"/>
