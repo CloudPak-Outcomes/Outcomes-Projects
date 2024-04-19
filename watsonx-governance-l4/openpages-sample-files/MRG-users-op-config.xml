@@ -24,35 +24,27 @@
     <actorGroupMemberships>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelManager">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelDeveloper">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelExec">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="BusinessExec">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelOwner">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelEngineer">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>        
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelMonitor">
-            <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>                        
+            <group isEntityGroup="false" name="OpenPages"/>                       
         </actorGroupMembership>
         <actorGroupMembership explicitGroupListing="false" isEntityGroup="false" name="ModelValidator">
             <group isEntityGroup="false" name="OpenPages"/>
-            <group isEntityGroup="false" name="Sample Users"/>
         </actorGroupMembership>
     </actorGroupMemberships>
     <roleAssignments/>

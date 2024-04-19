@@ -15,8 +15,7 @@
     <roleAssignments>
         <roleAssignment type="SOXBusEntity" status="assign">
             <businessUnits>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Human Resources"/>
             </businessUnits>
             <roleActors>
                 <roleActor name="ModelManager"/>
@@ -28,8 +27,7 @@
 
         <roleAssignment type="SOXBusEntity" status="assign">
             <businessUnits>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Human Resources"/>
             </businessUnits>
             <roleActors>
                 <roleActor name="ModelDeveloper"/>
@@ -45,8 +43,7 @@
 
         <roleAssignment type="SOXBusEntity" status="assign">
             <businessUnits>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
-                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Human Resources"/>
             </businessUnits>
             <roleActors>
                 <roleActor name="ModelValidator"/>
