@@ -1,0 +1,60 @@
+<openpagesConfiguration xmlFormatVersion="1.31" encoding="UTF-8">
+<!--=============================================================================
+    Licensed Materials - Property of IBM
+    
+    
+    OpenPages GRC Platform (PID: 5725-D51)
+    
+    © Copyright IBM Corporation 2019. All Rights Reserved.
+    
+    US Government Users Restricted Rights- Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+==============================================================================-->
+    <systemAdminMode enabled="false"/>
+
+    <roleAssignments>
+        <roleAssignment type="SOXBusEntity" status="assign">
+            <businessUnits>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+            </businessUnits>
+            <roleActors>
+                <roleActor name="ModelManager"/>
+            </roleActors>
+            <roles>
+                <role name="MRG - All Data - Limited Admin"/>
+            </roles>
+        </roleAssignment>
+
+        <roleAssignment type="SOXBusEntity" status="assign">
+            <businessUnits>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+            </businessUnits>
+            <roleActors>
+                <roleActor name="ModelDeveloper"/>
+                <roleActor name="ModelOwner"/>
+                <roleActor name="ModelExec"/>
+                <roleActor name="BusinessExec"/>
+                <roleActor name="ModelEngineer"/>
+            </roleActors>
+            <roles>
+                <role name="MRG - Model Developer Owner"/>
+            </roles>
+        </roleAssignment>
+
+        <roleAssignment type="SOXBusEntity" status="assign">
+            <businessUnits>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/Global Financial Services"/>
+                <businessUnit name="/_op_sox/Project/Default/BusinessEntity/High Oaks Bank"/>
+            </businessUnits>
+            <roleActors>
+                <roleActor name="ModelValidator"/>
+                <roleActor name="ModelMonitor"/>
+            </roleActors>
+            <roles>
+                <role name="MRG - Model Validation"/>
+            </roles>
+        </roleAssignment>
+    </roleAssignments>
+</openpagesConfiguration>
