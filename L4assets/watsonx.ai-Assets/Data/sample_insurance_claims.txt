@@ -1,9 +1,0 @@
-# sample input #1
-A car accident occurred on Jan 1st, 2023 at 5pm at the intersection of woodbridge. The insured vehicle, a Honda Civic, was hit by another vehicle that ran a red light. The insured driver, John, was driving within the speed limit and following all traffic rules. The accident resulted in significant damage to the insured vehicle, including a broken bumper and damaged front fender. There were no injuries reported. The insured is filing a claim for the repairs and any necessary medical expenses. 
-
-# sample input #2
-The insured vehicle, a Ford RAM, was stolen from Boston on Dec 2nd 2022. The vehicle was parked in a secure parking lot, and all necessary precautions were taken, such as locking the doors and activating the alarm system. The insured immediately reported the theft to the police and obtained a police report. The vehicle had comprehensive insurance coverage, and the insured is filing a claim for the stolen vehicle, including its estimated value, accessories, and personal belongings that were inside the vehicle at the time of theft. 
-
-# sample input #3
-The insured vehicle, a Tesla model X, was vandalized on march 23rd while parked in front of the insured's residence on Magador Street. The vandalism included scratched paint, broken windows, and damage to the side mirrors. The insured promptly reported the incident to the police and obtained a police report. The insured is filing a claim for the repairs and any necessary replacement parts. The estimated cost of repairs has been assessed by a reputable auto repair shop. 
-
