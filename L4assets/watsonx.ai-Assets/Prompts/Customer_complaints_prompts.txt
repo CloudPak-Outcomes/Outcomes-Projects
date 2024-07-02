@@ -1,0 +1,13 @@
+
+prompt_1
+    input_variables=["customer_complaint"], 
+    template="From the following customer complaint, extract 3 factors that caused the customer to be unhappy. Put each factor on a new line. Customer complaint: {customer_complaint}. Numbered list of complaints: "
+)
+  
+prompt_2 = PromptTemplate(
+    input_variables=["list_of_complaints"], 
+    template="Does the following statements contain the concept of identify theft?: {list_of_complaints}"
+)
+
+
+customer_complaint = "I am writing you this statement to delete the following information on my credit report. The items I need deleted are listed in the report. I am a victim of identity thief, I demand that you remove these errors to correct my report immediately! I have reported this to the federal trade commission and have attached the federal trade commission affidavit. Now that I have given you the following information, please correct my credit report or I shall proceed with involving my attorney!"
