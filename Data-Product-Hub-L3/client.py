@@ -50,7 +50,7 @@ class ImportClient:
         self.origin_country = os.getenv("ORIGIN_COUNTRY")
         self.db2_datasource_type = os.getenv("DB2_DATASOURCE_TYPE")
         
-        # Db2 Warehouse specific variables
+        # PSQL  specific variables
         self.psql_username = os.getenv("PSQL_DB_USERNAME")
         self.psql_password = os.getenv("PSQL_DB_PASSWORD")
         self.psql_database = os.getenv("PSQL_DB_DATABASE")
