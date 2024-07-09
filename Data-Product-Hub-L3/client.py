@@ -55,7 +55,7 @@ class ImportClient:
         self.psql_password = os.getenv("PSQL_DB_PASSWORD")
         self.psql_database = os.getenv("PSQL_DB_DATABASE")
         self.psql_host = os.getenv("PSQL_DB_HOST")
-        self.psql_db_port = os.getenv("PSQL_DB_PORT")
+        self.psql_port = os.getenv("PSQL_DB_PORT")
         self.psql_name = "3rd Party Data"
         self.psql_description = "Database that contains warehouse data needed by the business for analytics and AI."
         #self.owner_id = os.getenv("OWNER_ID")
