@@ -315,7 +315,7 @@ class ImportClient:
 
         # Request body
         payload = {
-            "datasource_type": self.datasource_type,
+            "datasource_type": self.psql_datasource_type,
             "name": self.psql_name,
             "description": self.psql_description,
             "properties": {
