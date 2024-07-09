@@ -322,10 +322,10 @@ class ImportClient:
                 "database": self.psql_database,
                 "auth_method": "username_password",
                 "password": self.psql_password,
-                "port": self.psql_port,  # Use the correct port
+                "port": self.psql_port,  
                 "host": self.psql_host,
                 "ssl": "true",
-                "username": self.psql_db_username
+                "username": self.psql_username
             },
             "origin_country": self.origin_country,
             "data_source_definition_searchable": f"{self.host}|{self.db_port,}|{self.database}"
