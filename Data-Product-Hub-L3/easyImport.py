@@ -18,5 +18,7 @@ def easy_import():
 
     # DB2 Warehouse
     client.define_db2_connection(bearer_token)
+    
+    client.define_psql_connection(bearer_token)
 
     client.main_import_process("governance_artifacts.zip", process_id=None)
