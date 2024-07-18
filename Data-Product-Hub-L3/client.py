@@ -56,7 +56,7 @@ class ImportClient:
         self.psql_database = os.getenv("PSQL_DB_DATABASE")
         self.psql_host = os.getenv("PSQL_DB_HOST")
         self.psql_port = os.getenv("PSQL_DB_PORT")
-        self.psql_name = "3rd Party Data"
+        self.psql_name = "Customer Data - PostgreSQL"
         self.psql_description = "Database that contains warehouse data needed by the business for analytics and AI."
         #self.owner_id = os.getenv("OWNER_ID")
         self.origin_country = os.getenv("ORIGIN_COUNTRY")
@@ -75,44 +75,36 @@ class ImportClient:
         
         # Get the catalog ID based on the catalog name
         self.catalog_id = self.get_catalog_id_by_name()
-        
-                # Initialize db2_id and cos_id attributes
         self.db2_id, self.cos_id, self.psql_id = self.fetch_resource_ids()
-
-    def create_metadata_import(self, project_id, create_job, job_name, name, connection_id, target_catalog_id, import_type='METADATA'):
-        url = f"{self.base_url}/v2/metadata_imports"
         
-        # Request query parameters
-        params = {
-            'project_id': project_id,
-            'create_job': create_job,
-            'job_name': job_name
-        }
         
-        # Request body
-        data = {
-            'name': name,
-            'connection_id': connection_id,
-            'target_catalog_id': target_catalog_id,
-            'import_type': import_type
-        }
-
-        # Headers (if authentication is required, e.g., Bearer token)
-        headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {self.get_bearer_token()}'
-        }
-
-
-        response = requests.post(url, headers=headers, params=params, json=data, verify=False)
+        # Metadata enrichment Parameters
+        self.mde_objective = {
+            "enrichment_options": {
+            "structured": {
+                "profile": True,
+                "assign_terms": True,
+                "analyze_quality": True
+                }
+            },
+            "governance_scope": self.get_category_ids(),
+            "sampling": {
+            "structured": {
+                "method": "TOP",
+                "analysis_method": "FIXED",
+                "sample_size": {
+                    "name": "BASIC",
+                    "options": {
+                        "row_number": 1000,
+                        "classify_value_number": 100
+                        }
+                    }
+                }
+            },
+            "datascope_of_reruns": "DELTA"
+            }
         
-        if response.status_code in [200, 201]:
-            print('Metadata import created successfully:', response.json())
-        else:
-            print('Failed to create metadata import:', response.status_code, response.text)
-
-
-
+        
     def fetch_resource_ids(self):
         """
         Fetch DB2 Warehouse and Cloud Object Storage asset IDs from the CPD catalog.
@@ -129,17 +121,394 @@ class ImportClient:
 
             # Iterate through resources to find DB2 Warehouse and Cloud Object Storage
             for resource in data['resources']:
-                if resource['entity']['name'] == 'Data Warehouse':
+                if resource['entity']['name'] == self.db2_name:
                     db2_id = resource['metadata']['asset_id']
-                elif resource['entity']['name'] == 'Cloud Object Storage':
+                elif resource['entity']['name'] == self.cos_name:
                     cos_id = resource['metadata']['asset_id']
-                elif resource['entity']['name'] == '3rd Party Data':
+                elif resource['entity']['name'] == self.psql_name:
                     psql_id = resource['metadata']['asset_id']
 
             return db2_id, cos_id, psql_id
         else:
             print("Failed to fetch resource IDs. Bearer token not obtained.")
             return None, None
+
+
+
+    def get_categories(self):
+        """
+        Retrieves category artifacts
+
+        Args:
+            artifact_ids (List[str]): List of artifact IDs of categories.
+
+        Returns:
+            dict: Category hierarchy paths for the given artifact IDs if the request is successful, otherwise None.
+        """
+        url = f"{self.base_url}/v3/search?query=metadata.artifact_type:category"
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {self.get_bearer_token()}'
+        }
+
+        response = requests.get(url, headers=headers, verify=False)
+
+        if response.status_code == 200:
+            #print('Category hierarchy paths retrieved successfully.')
+            return response.json()
+        else:
+            print('Failed to retrieve category hierarchy paths:', response.status_code, response.text)
+            return None
+
+    def get_category_ids(self):
+        categories_json = self.get_categories()
+        cat_list=[]
+        for i in range(5):
+            row = categories_json['rows'][i] if i < len(categories_json['rows']) else None
+            if row:
+                artifact_id = row.get('artifact_id')
+                if artifact_id:
+                    cat_list.append({"type": "CATEGORY", "id": artifact_id})
+        return cat_list
+
+
+
+    def publish_metadata_enrichment_assets(self, metadata_enrichment_area_id, publish_scope = "all_assets", asset_ids=None, filter_criteria=None):
+        """
+        Publish assets of a Metadata Enrichment Area to a catalog.
+
+        Args:
+            metadata_enrichment_area_id (str): ID of the metadata enrichment area asset.
+            publish_scope (str): Publish scope, allowable values: 'all_assets', 'selected_assets'.
+            catalog_id (str): ID of the catalog to publish assets to.
+            duplicate_action (str): Action if asset already exists, allowable values: 'IGNORE', 'REPLACE', 'UPDATE'.
+            asset_ids (list): List of asset IDs to publish. Required if publish_scope is 'selected_assets'.
+            filter_criteria (dict): Filter criteria for assets. Required if publish_scope is 'selected_assets'.
+
+        Returns:
+            dict: The response of the publish request if successful, otherwise None.
+        """
+
+
+
+        headers = {
+            'Authorization': f'Bearer {self.get_bearer_token()}',
+            'Content-Type': 'application/json'
+        }
+
+        payload = {
+            "catalog": self.catalog_id,
+            "duplicate_action": "update"
+        }
+
+        if publish_scope == "selected_assets":
+            if asset_ids:
+                payload["asset_ids"] = asset_ids
+            if filter_criteria:
+                payload["filter"] = {"search_criteria": filter_criteria}
+
+        url = f'https://{self.cpd_cluster_host}/v2/metadata_enrichment/metadata_enrichment_area/{metadata_enrichment_area_id}/publish_assets?project_id={self.project_id}&publishScope={publish_scope}'
+
+        response = requests.post(url, json=payload, headers=headers, verify=False)
+        try:
+            response_json = response.json()
+            print(f'Publish Assets Response: {response.status_code}, {response_json}')
+            return response_json
+        except requests.JSONDecodeError:
+            print(f'Error in Publish Assets Response: {response.status_code}, {response.text}')
+            return None
+
+
+    
+    def create_and_run_metadata_enrichment(self, name, mdi_id, enrichment_assets=None, description=None, enrichImmediate=True, job_name=None, job_schedule=None, publish_job_id=None, publish_job_name=None, publish_job_schedule=None, tags=None):
+        """
+        Create and run a metadata enrichment job.
+
+        Args:
+            name (str): Name of the metadata enrichment asset.
+            objective (object): Objective of the metadata enrichment.
+            target_catalog_id (str): ID of the catalog to store metadata enrichment assets.
+            mdi_id (str): ID of the metadata import.
+            enrichment_assets (list): IDs of assets to enrich metadata.
+            description (str): Description of the metadata enrichment area asset. Default is None.
+            enrichImmediate (bool): Whether to run enrichment immediately after area creation. Default is True.
+            job_name (str): Name of the metadata enrichment job. Default is None.
+            job_schedule (str): Schedule for the metadata enrichment job. Default is None.
+            publish_job_id (str): ID of the metadata publish job. Default is None.
+            publish_job_name (str): Name of the metadata publish job. Default is None.
+            publish_job_schedule (str): Schedule for the metadata publish job. Default is None.
+            tags (list): List of tags. Default is None.
+
+        Returns:
+            dict: The response of the metadata enrichment creation if successful, otherwise None.
+        """
+        
+
+        bearer_token = self.get_bearer_token()
+
+        headers = {
+            'Authorization': f'Bearer {bearer_token}',
+            'Content-Type': 'application/json'
+        }
+
+        payload = {
+            "name": name,
+            "objective": self.mde_objective,
+            "target_catalog_id": self.catalog_id,
+            "data_scope": {
+                "enrichment_assets": enrichment_assets,
+                "container_assets": {
+                    "metadata_import": [mdi_id]
+                }
+            },
+            "enrichImmediate": enrichImmediate
+        }
+
+        if description:
+            payload["description"] = description
+
+        if job_name or job_schedule:
+            payload["job"] = {}
+            if job_name:
+                payload["job"]["name"] = job_name
+            if job_schedule:
+                payload["job"]["schedule"] = job_schedule
+
+        if publish_job_id or publish_job_name or publish_job_schedule:
+            payload["publish_job"] = {}
+            if publish_job_id:
+                payload["publish_job"]["id"] = publish_job_id
+            if publish_job_name:
+                payload["publish_job"]["name"] = publish_job_name
+            if publish_job_schedule:
+                payload["publish_job"]["schedule"] = publish_job_schedule
+
+        if tags:
+            payload["data_scope"]["tags"] = tags
+
+        url = f'https://{self.cpd_cluster_host}/v2/metadata_enrichment/metadata_enrichment_area?project_id={self.project_id}'
+
+        response = requests.post(url, json=payload, headers=headers, verify=False)
+        try:
+            response_json = response.json()
+            print(f'{name}: Metadata Enrichment Creation Response: {response.status_code}')
+            return response_json
+        except requests.JSONDecodeError:
+            print(f'Error in Metadata Enrichment Creation Response: {response.status_code}, {response.text}')
+            return None
+
+
+    def update_mde_settings(self):
+        """
+        Update the settings for metadata enrichment.
+
+        Args:
+            mde_settings (dict): The metadata enrichment settings.
+
+        Returns:
+            dict: The updated settings data.
+        """
+
+        # Metadata enrichment settings
+        mde_settings = {
+        'advanced_profiling': {'unique_value_table': {'count': 1000}},
+        'semantic_expansion': {'name_expansion': True,
+                                'name_expansion_configuration': {'assignment_threshold': 0.9,
+                                                                'suggestion_threshold': 0.75},
+                                'description_generation': True,
+                                'description_generation_configuration': {'assignment_threshold': 0.9,
+                                                                        'suggestion_threshold': 0.75}},
+        'term_assignment': {'class_based_assignments': False,
+                            'term_assignment_threshold': 0.9,
+                            'term_suggestion_threshold': 0.75,
+                            'name_matching': True,
+                            'ml_based_assignments_default': False,
+                            'ml_based_assignments_custom': False,
+                            'evaluate_negative_assignments': True,
+                            'default_ml_configuration': {'catalog_id': self.catalog_id,
+                                                            'scope': 'catalog'},
+                            'llm_based_assignments': False},
+        'structured_profiling': {'null_threshold': 0.05,
+                                    'uniqueness_threshold': 0.95,
+                                    'constant_threshold': 0.99,
+                                    'quality_score_threshold': 0.8,
+                                    'data_class_assignment_threshold': 0.75,
+                                    'data_class_suggestion_threshold': 0.25,
+                                    'dq_exceptions_database': {'count': 100}},
+        'key_analysis': {'pk_shallow_analysis_config': {'min_confidence': 0.8},
+                            'fk_shallow_analysis_config': {'min_confidence': 0.8,
+                                                        'auto_selection': False,
+                                                        'auto_selection_threshold': 0.9}}
+        }
+        
+        
+        
+        headers = {
+            'Authorization': f'Bearer {self.get_bearer_token()}',
+            'Content-Type': 'application/json'
+        }
+        
+        endpoint = f"https://{self.cpd_cluster_host}/v2/metadata_enrichment/metadata_enrichment_area/settings"
+        params = {
+            'project_id': self.project_id
+        }
+        
+        response = requests.put(endpoint, headers=headers, params=params, json=mde_settings)
+        
+        # Print response status code and text for debugging
+        if response.status_code == 200:
+            print("Metadata enrichment settings updated successfully.")
+            return None
+
+
+    def get_metadata_import_details(self, metadata_import_id):
+        """
+        Retrieve details of a metadata import.
+
+        Args:
+            metadata_import_id (str): Id of the metadata import asset.
+            project_id (str): Id of the project.
+
+        Returns:
+            dict: Details of the metadata import if the request is successful, otherwise None.
+        """
+        url = f"{self.base_url}/v2/metadata_imports/{metadata_import_id}"
+        
+        # Query parameters
+        params = {
+            'project_id': self.project_id
+        }
+
+        # Headers
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {self.get_bearer_token()}'
+        }
+
+        response = requests.get(url, headers=headers, params=params, verify=False)
+
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Failed to retrieve metadata import details: {response.status_code}")
+            print(response.text)
+            return None
+
+    def create_and_run_metadata_import(self, connection_id, paths_scope, name="Metadata Import"):
+        """
+        Create a metadata import, create a job, patch the metadata import, and run the job.
+
+        Args:
+            connection_id (str): The connection ID for the import.
+            paths_scope (list): List of paths for the metadata import scope.
+            name (str): Name of the metadata import. Defaults to "Metadata Import".
+
+        Returns:
+            dict: The response of the job run if successful, otherwise None.
+        """
+        # Replace with actual values
+        cpd_url = self.cpd_cluster_host
+        project_id = self.project_id
+
+        # Get the bearer token
+        bearer_token = self.get_bearer_token()
+
+        headers = {
+            'Authorization': f'Bearer {bearer_token}',
+            'Content-Type': 'application/json'
+        }
+
+        # 1. Create an MDI
+        mdi_url = f'https://{cpd_url}/v2/metadata_imports?project_id={project_id}'
+        mdi_payload = {
+            "connection_id": connection_id,
+            "name": name,
+            "project_id": project_id,
+            "target_project_id": project_id,
+            "import_type": "metadata",
+            "scope": {"paths": paths_scope},
+            "extra_properties": {
+                "include_primary_key": "true",
+                "exclude_tables": "false",
+                "metadata_from_catalog_table_only": "true",
+                "include_foreign_key": "false",
+                "exclude_views": "false"
+            }
+        }
+        mdi_response = requests.post(mdi_url, json=mdi_payload, headers=headers)
+        try:
+            mdi_response_json = mdi_response.json()
+            print(f'MDI Creation Response: {mdi_response.status_code}')
+        except requests.JSONDecodeError:
+            print(f'Error in MDI Creation Response: {mdi_response.status_code}, {mdi_response.text}')
+            mdi_response_json = {}
+
+        mdi_id = mdi_response_json.get('metadata', {}).get('asset_id')
+        
+
+        # Proceed only if MDI creation was successful
+        if mdi_id:
+            # 2. Create a job
+            job_url = f'https://{cpd_url}/v2/jobs?project_id={project_id}'
+            job_payload = {
+                "job": {
+                    "asset_ref": mdi_id,
+                    "name": name+" Job",
+                    "description": " ",
+                    "configuration": {}
+                }
+            }
+            job_response = requests.post(job_url, json=job_payload, headers=headers)
+            try:
+                job_response_json = job_response.json()
+                print(f'Job Creation Response: {job_response.status_code}')
+                
+            except requests.JSONDecodeError:
+                print(f'Error in Job Creation Response: {job_response.status_code}, {job_response.text}')
+                job_response_json = {}
+
+            job_id = job_response_json.get('metadata', {}).get('asset_id')
+
+            # Proceed only if job creation was successful
+            if job_id:
+                # 3. Patch metadata Import with the job id
+                patch_url = f'https://{cpd_url}/v2/metadata_imports/{mdi_id}?project_id={project_id}'
+                patch_payload = {
+                    "job_id": job_id
+                }
+                patch_response = requests.patch(patch_url, json=patch_payload, headers=headers)
+                try:
+                    patch_response_json = patch_response.json()
+                    print(f'Patch MDI Response: {patch_response.status_code}')
+                except requests.JSONDecodeError:
+                    print(f'Error in Patch MDI Response: {patch_response.status_code}, {patch_response.text}')
+                    patch_response_json = {}
+
+                # Proceed only if patching was successful
+                if patch_response.status_code == 200:
+                    # 4. Run the Job (create a job-run)
+                    run_url = f'https://{cpd_url}/v2/jobs/{job_id}/runs?project_id={project_id}&job_id={job_id}'
+                    run_payload = {
+                        "job_run": {}
+                    }
+                    run_response = requests.post(run_url, json=run_payload, headers=headers)
+                    try:
+                        run_response_json = run_response.json()
+                        print(f'Run Job Response: {run_response.status_code}')
+                        print()
+                        return mdi_id, run_response_json
+                    except requests.JSONDecodeError:
+                        print(f'Error in Run Job Response: {run_response.status_code}, {run_response.text}')
+                        print('Detailed error information:', run_response.text)
+                else:
+                    print('Failed to patch MDI with job ID, terminating the process.')
+            else:
+                print('Job creation failed, terminating the process.')
+        else:
+            print('MDI creation failed, terminating the process.')
+
+        return None
 
 
     def verify_vars(self):
@@ -178,6 +547,7 @@ class ImportClient:
             print(response.text)
             return None
 
+
     def get_connections(self, bearer):
         """
         Returns the connections active in catalog.
@@ -195,7 +565,7 @@ class ImportClient:
 
         # Query parameters
         params = {
-            "catalog_id": self.catalog_id,  
+            "project_id": self.project_id,
             "sort": "-metadata.create_time",
             "limit": 50
         }
@@ -212,14 +582,18 @@ class ImportClient:
             print(response.text)
         
 
-    def define_cos_connection(self, bearer):
+    def define_cos_connection(self, bearer, catalog=True):
         """
         Define a connection to Cloud Object Storage (COS).
 
         Args:
             bearer (str): Bearer token for authentication.
         """
-        url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        if catalog == True:
+            url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        else:
+            url = f"{self.base_url}/v2/connections?project_id={self.project_id}"
+        
         headers = {
             "Authorization": f"Bearer {bearer}",
             "cache-control": "no-cache",
@@ -252,18 +626,23 @@ class ImportClient:
         if response.status_code == 200 or response.status_code == 201:
             print(f"Connection to {bold_blue_start}Cloud Object Storage{reset} defined successfully!")
             data = response.json()
+            self.cos_id = data.get('metadata', {}).get('asset_id')  
         else:
             print(f"Failed to define connection with status code {response.status_code}")
             print(response.text)
 
-    def define_db2_connection(self, bearer):
+    def define_db2_connection(self, bearer, catalog=True):
         """
         Define a connection to a DB2 Warehouse.
 
         Args:
             bearer (str): Bearer token for authentication.
         """
-        url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        if catalog == True:
+            url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        else:
+            url = f"{self.base_url}/v2/connections?project_id={self.project_id}"
+        
         headers = {
             "Authorization": f"Bearer {bearer}",
             "cache-control": "no-cache",
@@ -294,18 +673,23 @@ class ImportClient:
         if response.status_code == 200 or response.status_code == 201:
             print(f"Connection to {bold_blue_start}DB2 Warehouse{reset} defined successfully!")
             data = response.json()
+            self.db2_id = data.get('metadata', {}).get('asset_id')  
         else:
             print(f"Failed to define connection with status code {response.status_code}")
             print(response.text)
 
-    def define_psql_connection(self, bearer):
+    def define_psql_connection(self, bearer,catalog=True):
         """
-        Define a connection to a DB2 Warehouse.
+        Define a connection to a PostgreSQL Database.
 
         Args:
             bearer (str): Bearer token for authentication.
         """
-        url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        if catalog == True:
+            url = f"{self.base_url}/v2/connections?catalog_id={self.catalog_id}"
+        else:
+            url = f"{self.base_url}/v2/connections?project_id={self.project_id}"
+        
         headers = {
             "Authorization": f"Bearer {bearer}",
             "cache-control": "no-cache",
@@ -320,22 +704,21 @@ class ImportClient:
             "description": self.psql_description,
             "properties": {
                 "database": self.psql_database,
-                "auth_method": "username_password",
                 "password": self.psql_password,
-                "port": self.psql_port,  
+                "port": self.psql_port,
                 "host": self.psql_host,
-                "ssl": "true",
                 "username": self.psql_username
             },
             "origin_country": self.origin_country,
-            "data_source_definition_searchable": f"{self.host}|{self.db_port,}|{self.database}"
+            "data_source_definition_searchable": f"{self.host}|{self.db_port}|{self.database}"
         }
 
         response = requests.post(url, headers=headers, data=json.dumps(payload), verify=False)
 
         if response.status_code == 200 or response.status_code == 201:
-            print(f"Connection to {bold_blue_start}DB2 Warehouse{reset} defined successfully!")
+            print(f"Connection to {bold_blue_start} PostgreSQL{reset} defined successfully!")
             data = response.json()
+            self.psql_id = data.get('metadata', {}).get('asset_id')  
         else:
             print(f"Failed to define connection with status code {response.status_code}")
             print(response.text)
@@ -445,9 +828,10 @@ class ImportClient:
                     cowsay.beavis(fail_message)
                     break
                 else:
-                    wip_message = "Import process is still in progress. Checking again in 30 seconds..."
-                    cowsay.tux(wip_message)
-                    time.sleep(30)
+                    wip_message = "🚧🚧 Import process is still in progress. Checking again in 60 seconds... 🚧🚧"
+                    print(wip_message)
+                    print()
+                    time.sleep(60)
 
     def get_catalogs(self, bearer):
         """
