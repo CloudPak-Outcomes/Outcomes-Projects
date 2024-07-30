@@ -816,21 +816,21 @@ class ImportClient:
                 elapsed_time_str = str(timedelta(seconds=elapsed_time.seconds))
                 
                 percent_complete = (step_number / total_steps) * 100
-                print(f"Import Progress: {percent_complete:.2f}%")
+                print(f"Governance Artifacts Import Progress: {percent_complete:.2f}%")
                 print(f"Time elapsed: {elapsed_time_str}")
                 
                 if status == "SUCCEEDED" or step_number == total_steps:
-                    success_message=f"✅✅✅ {bold_green_start}Import process completed successfully.{reset} ✅✅✅"
-                    cowsay.stegosaurus(success_message)
+                    success_message=f"✅✅✅ {bold_green_start}Governance Artifacts import process completed successfully.{reset} ✅✅✅"
+                    print(success_message)
                     break
                 elif status == "FAILED":
                     fail_message=f"❌😢❌😢❌ {bold_red_start}Import process failed.{reset} ❌😢❌😢❌"
                     cowsay.beavis(fail_message)
                     break
                 else:
-                    wip_message = "🚧🚧 Import process is still in progress. Checking again in 60 seconds... 🚧🚧"
+                    wip_message = "🚧🚧 Governance Artifacts import process is still in progress. Checking again in 60 seconds... 🚧🚧"
                     print(wip_message)
-                    print()
+                    print("")
                     time.sleep(60)
 
     def get_catalogs(self, bearer):
@@ -879,6 +879,96 @@ class ImportClient:
         print(f"Catalog with name {self.catalog_name} not found.")
         return None
 
+    def run_main_import_process(self):
+        """
+        Main script for importing governance artifacts and checking status.
+        """
+        self.verify_vars()
+        
+
+        # Check Bearer Token is valid
+        self.bearer_token = self.get_bearer_token()
+
+        print("")
+
+        # Define Cloud Object Storage Connection
+        self.define_cos_connection(self.bearer_token, catalog=False)
+
+        print("")
+
+        # Define DB2 Warehouse Connection
+        self.define_db2_connection(self.bearer_token, catalog=False)
+        print("")
+
+        # Define PostgreSQL Connection
+        self.define_psql_connection(self.bearer_token, catalog=False)
+        print("")
+
+        # Import Governance Artifacts: Categories, Business Terms, Policies, and Rules
+        self.main_import_process("governance_artifacts.zip", process_id=None)
+        print("Governance artifacts import started...")
+        print("")
+        print("Beginning metadata import!")
+        # Create and run the metadata import DB2 Warehouse
+        path_db2=["/EMPLOYEE/EMPLOYEE_HISTORY","/EMPLOYEE/EMPLOYEE_RECORDS","/EMPLOYEE/EMPLOYEE_SUMMARY","/EMPLOYEE/EMPLOYEE"]
+        db2_mdid, db2_mdi_response = self.create_and_run_metadata_import(self.db2_id, path_db2, name="t3st DB2 Metadata Import")
+        print("DB2 Warehouse metadata import completed!")
+
+        # Create and run the metadata import COS
+        path_cos = ["/cpd-outcomes/Warehouse/WAREHOUSE_ASSIGNED_SHIFTS.csv","/cpd-outcomes/Warehouse/WAREHOUSE_SHIFTS.csv","/cpd-outcomes/Warehouse/WAREHOUSE_STAFF.csv","/cpd-outcomes/Warehouse/WAREHOUSE_STAFFING.csv"]
+        cos_mdid, cos_mdi_response = self.create_and_run_metadata_import(self.cos_id, path_cos, name="t3st Cloud Object Storage Metadata Import")
+        print("Cloud Object Storage metadata import completed!")
+
+        # Create and run the metadata import PostgreSQL
+        path_psql = ["/CUSTOMER/CUSTOMER_LOYALTY"]
+        psql_mdid, psql_mdi_response = self.create_and_run_metadata_import(self.psql_id, path_psql, name="t3st PostgreSQL Metadata Import")
+        print("PostgreSQL metadata import completed!")
+        print("")
+        print("Beginning metadata enrichment...")
+
+        # Run metadata enrichment
+        db2_result = self.create_and_run_metadata_enrichment(
+            name="Db2 Warehouse t3st MDE",
+            mdi_id=db2_mdid,
+            job_name=self.db2_name + " Enrichment Job",
+            publish_job_name=self.db2_name + " publish Job",
+        )
+        print("DB2 Warehouse metadata enrichment completed!")
+
+        cos_result = self.create_and_run_metadata_enrichment(
+            name="Cloud t3st Object Storage Enrichment",
+            mdi_id=cos_mdid,
+            job_name=self.cos_name + " Enrichment Job",
+            publish_job_name=self.cos_name + " publish Job",
+        )
+        print("Cloud Object Storage metadata enrichment completed!")
+
+        psql_result = self.create_and_run_metadata_enrichment(
+            name="PostgreSQLt3st MDE",
+            mdi_id=psql_mdid,
+            job_name=self.psql_name + " Enrichment Job",
+            publish_job_name=self.psql_name + " publish Job",
+        )
+        print("PostgreSQL metadata enrichment completed!")
+
+        time.sleep(180)
+        print("")
+        print("Beginning metadata enrichment asset publishing")
+
+        # Publish metadata enrichment assets
+        db2_mde_id = db2_result.get("metadata", {}).get("asset_id")
+        db2_publish_result = self.publish_metadata_enrichment_assets(db2_mde_id)
+        print("DB2 Warehouse metadata enrichment assets published!")
+
+        cos_mde_id = cos_result.get("metadata", {}).get("asset_id")
+        cos_publish_result = self.publish_metadata_enrichment_assets(cos_mde_id)
+        print("Cloud Object Storage metadata enrichment assets published!")
+
+        psql_mde_id = psql_result.get("metadata", {}).get("asset_id")
+        psql_publish_result = self.publish_metadata_enrichment_assets(psql_mde_id)
+        print("PostgreSQL metadata enrichment assets published!")
+        print("")        
+        cowsay.stegosaurus("Congratulations! You have successfully imported governance artifacts, add data connections and enriched metadata! You can now begin the Data Product Hub portion of the lab.")
 # Example usage:
 # client = ImportClient()
 # client.verify_vars()
