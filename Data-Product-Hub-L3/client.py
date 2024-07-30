@@ -911,24 +911,24 @@ class ImportClient:
         print("Beginning metadata import!")
         # Create and run the metadata import DB2 Warehouse
         path_db2=["/EMPLOYEE/EMPLOYEE_HISTORY","/EMPLOYEE/EMPLOYEE_RECORDS","/EMPLOYEE/EMPLOYEE_SUMMARY","/EMPLOYEE/EMPLOYEE"]
-        db2_mdid, db2_mdi_response = self.create_and_run_metadata_import(self.db2_id, path_db2, name="t3st DB2 Metadata Import")
+        db2_mdid, db2_mdi_response = self.create_and_run_metadata_import(self.db2_id, path_db2, name="DB2 Metadata Import")
         print("DB2 Warehouse metadata import completed!")
 
         # Create and run the metadata import COS
         path_cos = ["/cpd-outcomes/Warehouse/WAREHOUSE_ASSIGNED_SHIFTS.csv","/cpd-outcomes/Warehouse/WAREHOUSE_SHIFTS.csv","/cpd-outcomes/Warehouse/WAREHOUSE_STAFF.csv","/cpd-outcomes/Warehouse/WAREHOUSE_STAFFING.csv"]
-        cos_mdid, cos_mdi_response = self.create_and_run_metadata_import(self.cos_id, path_cos, name="t3st Cloud Object Storage Metadata Import")
+        cos_mdid, cos_mdi_response = self.create_and_run_metadata_import(self.cos_id, path_cos, name="Cloud Object Storage Metadata Import")
         print("Cloud Object Storage metadata import completed!")
 
         # Create and run the metadata import PostgreSQL
         path_psql = ["/CUSTOMER/CUSTOMER_LOYALTY"]
-        psql_mdid, psql_mdi_response = self.create_and_run_metadata_import(self.psql_id, path_psql, name="t3st PostgreSQL Metadata Import")
+        psql_mdid, psql_mdi_response = self.create_and_run_metadata_import(self.psql_id, path_psql, name="PostgreSQL Metadata Import")
         print("PostgreSQL metadata import completed!")
         print("")
         print("Beginning metadata enrichment...")
 
         # Run metadata enrichment
         db2_result = self.create_and_run_metadata_enrichment(
-            name="Db2 Warehouse t3st MDE",
+            name="Db2 Warehouse MDE",
             mdi_id=db2_mdid,
             job_name=self.db2_name + " Enrichment Job",
             publish_job_name=self.db2_name + " publish Job",
@@ -936,7 +936,7 @@ class ImportClient:
         print("DB2 Warehouse metadata enrichment completed!")
 
         cos_result = self.create_and_run_metadata_enrichment(
-            name="Cloud t3st Object Storage Enrichment",
+            name="Cloud Object Storage Enrichment",
             mdi_id=cos_mdid,
             job_name=self.cos_name + " Enrichment Job",
             publish_job_name=self.cos_name + " publish Job",
@@ -944,7 +944,7 @@ class ImportClient:
         print("Cloud Object Storage metadata enrichment completed!")
 
         psql_result = self.create_and_run_metadata_enrichment(
-            name="PostgreSQLt3st MDE",
+            name="PostgreSQLMDE",
             mdi_id=psql_mdid,
             job_name=self.psql_name + " Enrichment Job",
             publish_job_name=self.psql_name + " publish Job",
