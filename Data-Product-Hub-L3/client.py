@@ -220,6 +220,96 @@ class ImportClient:
             return None
 
 
+
+    def create_and_run_MDE(self, name, mdi_id, enrichment_assets=None, description=None, enrichImmediate=True, job_name=None, job_schedule=None, publish_job_id=None, publish_job_name=None, publish_job_schedule=None, tags=None):
+        """
+        Create and run a metadata enrichment job.
+
+        Args:
+            name (str): Name of the metadata enrichment asset.
+            objective (object): Objective of the metadata enrichment.
+            target_catalog_id (str): ID of the catalog to store metadata enrichment assets.
+            mdi_id (str): ID of the metadata import.
+            enrichment_assets (list): IDs of assets to enrich metadata.
+            description (str): Description of the metadata enrichment area asset. Default is None.
+            enrichImmediate (bool): Whether to run enrichment immediately after area creation. Default is True.
+            job_name (str): Name of the metadata enrichment job. Default is None.
+            job_schedule (str): Schedule for the metadata enrichment job. Default is None.
+            publish_job_id (str): ID of the metadata publish job. Default is None.
+            publish_job_name (str): Name of the metadata publish job. Default is None.
+            publish_job_schedule (str): Schedule for the metadata publish job. Default is None.
+            tags (list): List of tags. Default is None.
+
+        Returns:
+            dict: The response of the metadata enrichment creation if successful, otherwise None.
+        """
+
+        try:
+            bearer_token = self.get_bearer_token()
+
+            headers = {
+                'Authorization': f'Bearer {bearer_token}',
+                'Content-Type': 'application/json'
+            }
+
+            payload = {
+                "name": name,
+                "objective": self.mde_objective,
+                "target_catalog_id": self.catalog_id,
+                "data_scope": {
+                    "enrichment_assets": enrichment_assets,
+                    "container_assets": {
+                        "metadata_import": [mdi_id]
+                    }
+                },
+                "enrichImmediate": enrichImmediate
+            }
+
+            if description:
+                payload["description"] = description
+
+            if job_name or job_schedule:
+                payload["job"] = {}
+                if job_name:
+                    payload["job"]["name"] = job_name
+                if job_schedule:
+                    payload["job"]["schedule"] = job_schedule
+
+            if publish_job_id or publish_job_name or publish_job_schedule:
+                payload["publish_job"] = {}
+                if publish_job_id:
+                    payload["publish_job"]["id"] = publish_job_id
+                if publish_job_name:
+                    payload["publish_job"]["name"] = publish_job_name
+                if publish_job_schedule:
+                    payload["publish_job"]["schedule"] = publish_job_schedule
+
+            if tags:
+                payload["data_scope"]["tags"] = tags
+
+            url = f'https://{self.cpd_cluster_host}/v2/metadata_enrichment/metadata_enrichment_area?project_id={self.project_id}'
+
+            # Debugging Information
+            print("---- Debugging Information ----")
+            print(f"URL: {url}")
+            print(f"Headers: {json.dumps(headers, indent=4)}")
+            print(f"Payload: {json.dumps(payload, indent=4)}")
+            print("-------------------------------")
+
+            response = requests.post(url, json=payload, headers=headers, verify=False)
+
+            try:
+                response_json = response.json()
+                print(f'{name}: Metadata Enrichment Creation Response: {response.status_code}')
+                return response_json
+            except requests.JSONDecodeError:
+                print(f'Error in Metadata Enrichment Creation Response: {response.status_code}, {response.text}')
+                return None
+
+        except Exception as e:
+            print(f'An error occurred: {str(e)}')
+            return None
+
     
     def create_and_run_metadata_enrichment(self, name, mdi_id, enrichment_assets=None, description=None, enrichImmediate=True, job_name=None, job_schedule=None, publish_job_id=None, publish_job_name=None, publish_job_schedule=None, tags=None):
         """
@@ -924,6 +1014,7 @@ class ImportClient:
         psql_mdid, psql_mdi_response = self.create_and_run_metadata_import(self.psql_id, path_psql, name="PostgreSQL Metadata Import")
         print("PostgreSQL metadata import completed!")
         print("")
+        time.sleep(90)
         print("Beginning metadata enrichment...")
 
         # Run metadata enrichment
@@ -951,7 +1042,7 @@ class ImportClient:
         )
         print("PostgreSQL metadata enrichment completed!")
 
-        time.sleep(180)
+        time.sleep(300)
         print("")
         print("Beginning metadata enrichment asset publishing")
 
