@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --font-size: 10pt;
+    --markdown-line-height: 1.07rem;
+    --font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-weight: 400;
+    --code-font-family: 'IBM Plex Mono', Consolas, 'Courier New', monospace;
+    --textSeparator-foreground: rgba(0, 0, 0, 0.18);
+    --text-foreground: #0043ce;
+    --style-foreground: #0f62fe;
+    --textPreformat-foreground: #d12771;
+    --textBlockQuote-background: rgba(191, 191, 191, 0.1);
+    --textBlockQuote-border: rgba(0, 122, 204, 0.5);
+    --textCodeBlock-background: rgba(220, 220, 220, 0.4);
+    --pre-code-border: 1px solid var(--text-foreground);
+}
+
+html {
+    font-size: var(--font-size);
+}
+
+html body {
+    color: var(--foreground);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    margin: 0;
+    padding: 0 20px;
+}
+
+html body img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+html body a {
+    color: var(--text-foreground);
+    ;
+}
+
+html body a:hover {
+    color: var(--style-foreground);
+}
+
+html body a:focus,
+html body input:focus,
+html body select:focus,
+html body textarea:focus {
+    outline: 1px solid -webkit-focus-ring-color;
+    outline-offset: -1px;
+}
+
+html body code {
+    color: var(--textPreformat-foreground);
+}
+
+html body blockquote {
+    background: var(--textBlockQuote-background);
+    border-color: var(--textBlockQuote-border);
+}
+
+html body kbd {
+    color: var(--foreground);
+    border-radius: 3px;
+    vertical-align: middle;
+    padding: 1px 3px;
+    background-color: hsla(0, 0%, 50%, .17);
+    border: 1px solid rgba(71, 71, 71, .4);
+    border-bottom-color: rgba(88, 88, 88, .4);
+    box-shadow: inset 0 -1px 0 rgba(88, 88, 88, .4);
+}
+
+html body .light kbd {
+    background-color: hsla(0, 0%, 87%, .5);
+    border: 1px solid hsla(0, 0%, 80%, .7);
+    border-bottom-color: hsla(0, 0%, 73%, .7);
+    box-shadow: inset 0 -1px 0 hsla(0, 0%, 73%, .7);
+}
+
+html body ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html body ::-webkit-scrollbar-corner {
+    background-color: var(--background);
+}
+
+html body ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarSlider-background);
+}
+
+html body ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbarSlider-hoverBackground);
+}
+
+html body ::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbarSlider-activeBackground);
+}
+
+html body .emoji {
+    height: 20px;
+}
+
+html body pre {
+    white-space: pre-wrap;
+}
+
+html body h5:nth-of-type(3n) {
+    display: block;
+    page-break-after: always;
+}
+
+html body .no-page-break {
+    page-break-inside: avoid;
+}
+
+html body> :first-child {
+    margin-top: 0;
+}
+
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+    line-height: 1.2;
+    margin-top: 1em;
+    margin-bottom: 16px;
+    color: var(--cds-text-01, #161616);
+}
+
+html body h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    padding-bottom: 0.3em;
+    color: var(--text-foreground);
+    letter-spacing: -0.5pt;
+    /* Condensed by 0.5pt */
+    font-kerning: normal;
+    /* Kerning set, but CSS doesn't specify exact pt value */
+    line-height: normal;
+}
+
+html body h2 {
+    font-size: 1.6rem;
+    /* 16pt converted to rem */
+    color: rgb(0, 67, 206);
+    /* Custom font color */
+    text-indent: 0;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 2.88rem;
+    line-height: 1.5;
+    counter-reset: section;
+}
+
+html body h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+html body h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+html body h5 {
+    font-size: 1.2rem;
+    /* 12pt converted to rem based on a 10px base */
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+html body h6 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--cds-text-02, #525252);
+}
+
+html body strong {
+    font-weight: 500;
+}
+
+html body del {
+    color: var(--cds-text-02, #525252);
+}
+
+html body a {
+    color: var(--cds-interactive-01, #0043ce);
+    text-decoration: none;
+}
+
+html body a.toc-first-level {
+    padding-left: -0.1in;
+    /* Indentation for the list text */
+    line-height: 1.5;
+}
+
+html body a:hover {
+    color: var(--cds-interactive-02, #0043ce);
+}
+
+html body img {
+    max-width: 100%;
+}
+
+html body p {
+    font-family: "IBM Plex Sans Light", sans-serif;
+    /* Font family */
+    font-size: 1rem;
+    /* 10pt converted to rem (10pt = 10px, using base 10px) */
+    color: #000;
+    /* Assuming "Text 1" is black, adjust the color code if necessary */
+    line-height: 1.4rem;
+    /* Single line spacing */
+    margin-bottom: 10pt;
+    /* Space after paragraph, 10pt converted directly */
+    text-align: left;
+    /* Align text to the left */
+    widows: 1;
+    /* Widow/Orphan control */
+    orphans: 1;
+    /* Orphan control */
+    font-variant-ligatures: none;
+    /* No ligatures */
+}
+
+html body ul,
+ol {
+    list-style-position: outside;
+    /* Ensure bullets/numbers are outside the content */
+}
+
+html body ul {
+    list-style-type: disc;
+    /* Bullet list style */
+}
+
+html body ol {
+    list-style-type: decimal;
+    /* Numbered list style */
+}
+
+html body li {
+    margin-bottom: 0;
+    /* No space between list items */
+    line-height: 1.5;
+    /* Line height for readability */
+}
+
+html body blockquote {
+    margin: 16px 0;
+    font-size: inherit;
+    padding: 0 15px;
+    color: var(--cds-text-02, #525252);
+    background-color: var(--cds-field-02, #f4f4f4);
+    border-left: 4px solid var(--cds-border-01, #8d8d8d);
+}
+
+html body blockquote> :first-child {
+    margin-top: 0;
+}
+
+html body blockquote> :last-child {
+    margin-bottom: 0;
+}
+
+html body hr {
+    height: 4px;
+    margin: 32px 0;
+    background-color: var(--cds-border-01, #8d8d8d);
+    border: none;
+}
+
+html body table {
+    margin: 10px 0 15px 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: keep-all;
+    page-break-inside: avoid;
+}
+
+html body th {
+    font-weight: 700;
+    color: var(--cds-text-01, #161616);
+}
+
+table a {
+    color: black;
+}
+
+table a:hover {
+    color: black;
+}
+
+html body td,
+html body th {
+    border: 1px solid var(--cds-border-01, #8d8d8d);
+    padding: 6px 13px;
+}
+
+html body dl {
+    padding: 0;
+}
+
+html body dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 700;
+}
+
+html body dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+html body pre,
+html body code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
+    border-radius: 3px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow: visible;
+}
+
+html body pre {
+    margin: 16px 0;
+    padding: 8px 12px;
+    line-height: 1.45;
+    border-radius: 3px;
+    box-sizing: border-box;
+    word-break: break-word;
+    white-space: pre-wrap;
+    border: 1px solid var(--style-foreground);
+    overflow: visible;
+}
+
+html body code {
+    padding: 2px 4px;
+    display: inline-block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text-foreground);
+    border-radius: 3px;
+    word-wrap: normal;
+    background-color: transparent;
+}
+
+@media print {
+    html body {
+        background-color: var(--cds-ui-background, #ffffff);
+    }
+
+    html body h1 {
+        font-size: 35 pt;
+        font-weight: 300;
+        letter-spacing: -0.5pt;
+        padding-bottom: 0.3em;
+        color: var(--text-foreground);
+    }
+
+    html body h6 {
+        font-weight: 400;
+    }
+
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+        color: var(--cds-text-01, #161616);
+        page-break-after: avoid;
+        page-break-before: auto;
+    }
+
+    html body blockquote {
+        color: var(--cds-text-02, #525252);
+    }
+
+    html body pre {
+        width: 90%;
+        page-break-inside: avoid;
+        word-break: break-word;
+        white-space: pre-wrap;
+        overflow: visible;
+    }
+
+    html body code,
+    html body pre {
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+
+    html body table {
+        display: table;
+    }
+
+    html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+/* Styles for first-level list items */
+.first-level {
+    font-size: 1.1rem;
+    margin-bottom: 0rem;
+    tab-size: 62.304rem;
+    position: relative;
+    padding-left: 0rem;
+}
+
+.first-level li {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+/* Styles for second-level list items */
+.second-level {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-right: 2rem;
+    margin-top: 0rem;
+}
+
+.second-level li {
+    margin-left: 2rem;
+    list-style-type: none;
+}
+
+.toc .page {
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+}
+
+html body ul.first-level>li>a {
+    font-size: 1.1rem;
+    color: black;
+}
+
+html body ul.second-level>li>a {
+    font-size: 1rem;
+    color: black;
+}
+
+html body ul.first-level li {
+    margin-bottom: 0;
+    padding-left: 0.1in;
+    line-height: 1.5;
+}
