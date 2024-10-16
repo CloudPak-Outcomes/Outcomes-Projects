@@ -1,4 +1,4 @@
-﻿Resume,Summarization
+Resume,Summarization,generated_text
 "Nerissa G. McCloud-Pearcy
 (205) 123-4567
 nmccloud@email.com
@@ -29,7 +29,7 @@ Strategic Planning
 Sales Management
 Marketing Strategy
 Client Relations
-Team Management","A results-driven Sales Manager with 14+ years of experience of within the tourism and hospitality industry, specializing in account-based sales, marketing strategy, and client relations. A proven track record of identifying opportunities to increase client satisfaction and drive operational excellence."
+Team Management","A results-driven Sales Manager with 14+ years of experience of within the tourism and hospitality industry, specializing in account-based sales, marketing strategy, and client relations. A proven track record of identifying opportunities to increase client satisfaction and drive operational excellence.","Nerissa G. McCloud-Pearcy is a results-driven Sales Manager with 14+ years of experience in the tourism and hospitality industry. She specializes in account-based sales, marketing strategy, and client relations. She has successfully implemented new sales and marketing strategies, resulting in over $2M in new business. Additionally, she has managed teams, provided training, and improved sales revenue for add-on services. Nerissa has also developed referral networks and increased profit margins. She holds an Associate of Arts degree in Liberal Arts and possesses key skills in strategic planning, sales management, marketing strategy, client relations, and team management."
 "Sarah Tomlinson
 (123) 456-7891
 s.tomlinson@email.com
@@ -62,7 +62,7 @@ Roosevelt University, Chicago, IL, September 2013 – June 2017
 
 Certifications
 Certified Inside Sales Professional (CISP)
-Certified Sales Leadership Professional (CSLP)",Sarah Tomlinson is an innovative Sales Manager with six years of experience in managing diverse sales teams in fast-paced business environments. She has a proven track record of interfacing with client stakeholders to drive business development and customer success. Sarah is adept at utilizing Salesforce CRM to generate and qualify high value leads. She holds certifications as a Certified Inside Sales Professional (CISP) and a Certified Sales Leadership Professional (CSLP).
+Certified Sales Leadership Professional (CSLP)",Sarah Tomlinson is an innovative Sales Manager with six years of experience in managing diverse sales teams in fast-paced business environments. She has a proven track record of interfacing with client stakeholders to drive business development and customer success. Sarah is adept at utilizing Salesforce CRM to generate and qualify high value leads. She holds certifications as a Certified Inside Sales Professional (CISP) and a Certified Sales Leadership Professional (CSLP).,"Sarah Tomlinson is an innovative Sales Manager with six years of experience. She has a proven track record of building and managing sales teams, driving business development, and achieving customer success. Sarah is skilled in utilizing Salesforce CRM to generate and qualify high-value leads. Currently, she manages a team of 15+ sales representatives and account executives, resulting in a 40% increase in sales revenue in 2022 and an average close rate of 35%. Sarah also excels in cross-functional leadership, pipeline development, negotiations, and new business development. She holds a Bachelor of Science in Business Management and is certified as an Inside Sales Professional and Sales Leadership Professional."
 "Aliya Jackson
 (123) 456-7890
 aliyajackson@example.com
@@ -94,7 +94,7 @@ Equipment Maintenance
 Team Leadership
 Education
 Associate of Science (A.S.) Construction Management
-Wayne County Community College, Detroit, MI September 2013 – June 2015","An OSHA-certified Construction Worker with 8+ years of experience in commercial construction, specializing in coordinating with diverse construction teams to ensure on-time and on-budget completion of multi-million-dollar projects. A proven track record of adhering to OSHA safety standards and operating heavy machinery and power tools."
+Wayne County Community College, Detroit, MI September 2013 – June 2015","An OSHA-certified Construction Worker with 8+ years of experience in commercial construction, specializing in coordinating with diverse construction teams to ensure on-time and on-budget completion of multi-million-dollar projects. A proven track record of adhering to OSHA safety standards and operating heavy machinery and power tools.","Aliya Jackson is an OSHA-certified Construction Worker with eight years of experience. She has worked on multi-million-dollar construction projects such as malls, bridges, highways, and commercial build outs. She has a proven track record of coordinating with diverse construction teams to ensure projects are completed on time and within budget. Aliya has experience in concrete work, operating heavy machinery and power tools, and ensuring compliance with OSHA safety standards. She has also provided training to new team members and contractors on safety standards and standard operating procedures. Aliya holds an Associate of Science degree in Construction Management from Wayne County Community College."
 "Anthony Gentile
 (123) 456-7890
 anthonygentile@example.com
@@ -126,7 +126,7 @@ Operated heavy machinery, maintained equipment and work sites, identified potent
 Painted interior and exterior walls of buildings using brushes, rollers, and spray guns
 Education
 High School Diploma
-Nashville Central High School, Nashville, TN September 2017 – June 2021","A Construction Worker with two years of experience collaborating with high-performance teams to execute home renovation projects and new residential builds valued at up to $200K. Adept at operating heavy equipment, performing repairs, and ensuring compliance with OSHA safety standards."
+Nashville Central High School, Nashville, TN September 2017 – June 2021","A Construction Worker with two years of experience collaborating with high-performance teams to execute home renovation projects and new residential builds valued at up to $200K. Adept at operating heavy equipment, performing repairs, and ensuring compliance with OSHA safety standards.","Anthony Gentile is a Construction Worker with two years of experience in residential construction projects. He has expertise in operating heavy equipment, performing repairs, and ensuring compliance with OSHA safety standards. Anthony has worked for Trinity Construction and Quad Building and Renovation in Nashville, TN. His responsibilities include coordinating with construction teams, operating construction machinery, conducting roof repairs, and supporting residential construction projects. He is skilled in carpentry, construction machinery operation, residential construction, OSHA safety standards, and equipment maintenance. Anthony holds a high school diploma from Nashville Central High School."
 "Raheem Richardson
 (123) 456-7890
 raheemrichardson@example.com
@@ -159,7 +159,7 @@ Building Codes
 Blueprint Reading
 Education
 Associate of Science (A.S.) Construction Management
-Philadelphia Community College, Philadelphia, PA September 2011 – June 2013",A Construction Manager with 10+ years of experience overseeing commercial and residential construction projects valued at up to $100M. A proven track record of building and leading high-performance construction teams to execute complex projects ahead of schedule. Adept at ensuring compliance with safety regulations to prevent workplace injuries.
+Philadelphia Community College, Philadelphia, PA September 2011 – June 2013",A Construction Manager with 10+ years of experience overseeing commercial and residential construction projects valued at up to $100M. A proven track record of building and leading high-performance construction teams to execute complex projects ahead of schedule. Adept at ensuring compliance with safety regulations to prevent workplace injuries.,"Raheem Richardson is an experienced Construction Manager with a successful track record of overseeing commercial and residential projects valued up to $100M. He has managed teams of up to 20 contractors, ensuring completion of projects on time and in compliance with safety regulations. Raheem is skilled in analyzing blueprints, adjusting construction plans, and coordinating with architects to mitigate potential risks and hazards. He has also successfully managed vendor relationships and reduced material costs by 10%. Raheem has a strong background in construction, including operating heavy machinery and power tools, and holds certifications as a Certified Construction Manager and OSHA 30."
 "Abby Holt
 473-382-7583
 abbyholt@gmail.com 2927
@@ -197,7 +197,7 @@ Human Management
 Information Systems
 Interpersonal Communication
 Marketing & Business Development
-Salesforce Management",Customer Success Manager with experience managing a large number of accounts while maintaining high customer satisfaction. Focused on driving sales and business growth while building positive long-term relationships with customers. Demonstrated success leading and motivating teams of customer success representatives.
+Salesforce Management",Customer Success Manager with experience managing a large number of accounts while maintaining high customer satisfaction. Focused on driving sales and business growth while building positive long-term relationships with customers. Demonstrated success leading and motivating teams of customer success representatives.,"Abby Holt is a Customer Success Manager with experience in managing accounts, driving sales, and building long-term relationships with customers. She has strong skills in conflict management, customer experience, leadership, and project management. In her previous role at Ironics Systems, she researched market trends, managed customer onboarding, and trained and led a 12-person customer success team. Abby's accomplishments include developing a referral campaign that increased customer retention and creating a 40% year-over-year gain in new clients. She holds a Bachelor of Arts in Business Administration from the University of Washington, with coursework in finance, marketing, and Salesforce management."
 "Susanne King
 (123) 456-7890
 susan.king@anymail.com
@@ -231,7 +231,7 @@ Handled new customer queries and concerns by email and phone
 Reported resolution times and pain points in weekly and monthly meetings
 Replied to public customer feedback in a prompt and transparent manner
 Adhered to strict KPIs while ensuring a personalized service
-Escalated customer complaints as needed","Empathetic and hardworking Customer Account Manager with hands-on experience in SaaS startups. Skilled at reducing case resolution times and raising overall customer satisfaction. Worked with various customer communication platforms, and created procedures that improved team efficiency handling customer queries. Diligent reporting customer feedback and KPI statistics to internal and external stakeholders."
+Escalated customer complaints as needed","Empathetic and hardworking Customer Account Manager with hands-on experience in SaaS startups. Skilled at reducing case resolution times and raising overall customer satisfaction. Worked with various customer communication platforms, and created procedures that improved team efficiency handling customer queries. Diligent reporting customer feedback and KPI statistics to internal and external stakeholders.","Susanne King is a Customer Account Manager with experience in SaaS startups. She has a strong ability to solve problems creatively and has worked with customer communication platforms such as Zendesk and Freshdesk. Susanne is skilled in technical troubleshooting and uses customer feedback to improve procedures. She is proficient in the Google Drive Suite and has a Bachelor of Fine Arts degree from Temple University. In her current role as a Senior Account Manager at 123Graphics, she engages with customers through various channels, assists with challenging interactions, and actively seeks new sales opportunities. She previously worked as a Customer Support Superstar at Carjazz, where she handled customer queries, reported resolution times, and escalated complaints when necessary."
 "Sadie O’Neill
 (123) 456-7890
 sneill@email.com
@@ -277,7 +277,7 @@ Customer Relations & Service
 Kajabi
 PayPal
 Stripe
-Team Leadership & Motivation","Customer Success Manager with strong experience in B2C membership businesses. Expertly handle difficult customer cases, using data to improve service quality and internal processes. Skilled at launching new platforms, onboarding team members, and providing continual support."
+Team Leadership & Motivation","Customer Success Manager with strong experience in B2C membership businesses. Expertly handle difficult customer cases, using data to improve service quality and internal processes. Skilled at launching new platforms, onboarding team members, and providing continual support.","Sadie O'Neill is a Customer Success Manager with experience in B2C membership businesses. She excels in handling difficult customer cases, using data to improve service quality and internal processes. With skill in launching new platforms, onboarding team members, and providing continual support, Sadie has demonstrated success in her current role as Head of Customer Success at Boxamo. She has streamlined service procedures, raised client satisfaction by 34% in 6 months, and co-developed procedures that increased efficiency and customer satisfaction. Sadie has a Bachelor of Design from New York University and possesses skills in team leadership, complex problem-solving, and customer relations."
 "Robert Santos
 (123) 456-7890
 robertsantos@example.com
@@ -309,7 +309,7 @@ Campaign Development
 Product Marketing
 Brand Messaging
 Certifications
-Digital Marketing, American Marketing Association, 2017","An E-commerce Retail Specialist with five years of experience, specializing in digital marketing, B2C sales, brand messaging, and project management. A strong history of collaborating with cross-functional teams to execute promotional marketing campaigns and initiatives. Adept at troubleshooting complex issues to improve the functionality of e-commerce platforms."
+Digital Marketing, American Marketing Association, 2017","An E-commerce Retail Specialist with five years of experience, specializing in digital marketing, B2C sales, brand messaging, and project management. A strong history of collaborating with cross-functional teams to execute promotional marketing campaigns and initiatives. Adept at troubleshooting complex issues to improve the functionality of e-commerce platforms.","Robert Santos is an experienced E-commerce Retail Specialist with expertise in digital marketing, B2C sales, brand messaging, and project management. He has a strong history of collaborating with cross-functional teams to execute promotional marketing campaigns and initiatives. In his current role at Sunlight Meals Inc., he has successfully developed product pages, displays, and promotions, generating a $500K increase in annual revenue. He has also been responsible for driving digital marketing campaigns and initiatives at Plant-based.com, resulting in over $3.5M in annual revenue. Robert holds a Bachelor's degree in Digital Marketing from Boston University and is certified in Digital Marketing by the American Marketing Association."
 "Adam Langston
 (123) 456-7890
 adamlangston@example.com
@@ -341,4 +341,4 @@ Cross-Functional Leadership
 Data-Driven Decision Making
 Team Management
 Certifications
-Digital Marketing, American Marketing Association, 2014","A results-driven E-commerce Retail Specialist with 10+ years of experience, specializing in business development, digital marketing, and e-commerce strategy. A proven track record of building and leading diverse cross-functional teams to drive sales conversions and product marketing initiatives in high-volume B2C environments."
+Digital Marketing, American Marketing Association, 2014","A results-driven E-commerce Retail Specialist with 10+ years of experience, specializing in business development, digital marketing, and e-commerce strategy. A proven track record of building and leading diverse cross-functional teams to drive sales conversions and product marketing initiatives in high-volume B2C environments.","Adam Langston is a results-driven E-commerce Retail Specialist with over 10 years of experience. He has expertise in business development, digital marketing, and e-commerce strategy. In his current role at HomeAppliancePros.com, he manages a cross-functional team of 15 marketing and sales personnel, leading them to generate over $10M in annual revenue through effective marketing copy and technical enhancements. In his previous role at EthicalJewlery.com, Adam successfully developed an e-commerce website and implemented web functionality that resulted in a 25% increase in online sales within three months. He holds a Bachelor's degree in Digital Marketing and is skilled in cross-functional leadership and data-driven decision making. Adam is also certified in Digital Marketing by the American Marketing Association."
