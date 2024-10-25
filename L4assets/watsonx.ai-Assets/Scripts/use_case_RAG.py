@@ -142,7 +142,7 @@ def main():
     # Provide the path relative to the dir in which the script is running
     # In this example the .txt file is in the same directory
     # In this example the .pdf file is in the same directory
-    file_path = "./Generative_AI_Overview.pdf"
+    file_path = "./state_of_the_union.txt"
     # You may also have to hard-code the path if you cannot get the relative path to work
     # file_path = "C:/Users/xxxxxxxxx/Documents/VS Code/state_of_the_union.txt"
 
