@@ -1,0 +1,9 @@
+#################################################################
+## IBM Knowledge Catalog parameters
+#################################################################
+custom_spec:
+  wkc:
+    enableDataQuality: True
+    enableSemanticAutomation: True
+    enableKnowledgeGraph: True
+    useFDB: False
