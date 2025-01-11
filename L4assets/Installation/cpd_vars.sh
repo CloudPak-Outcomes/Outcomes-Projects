@@ -12,16 +12,16 @@
 # ------------------------------------------------------------------------------
 # Cluster
 # ------------------------------------------------------------------------------
-export OCP_URL[KS1] [FL2] =<Enter your own value>
+export OCP_URL=<Enter your own value>
 export OPENSHIFT_TYPE=self-managed
 export IMAGE_ARCH=amd64
 export OCP_USERNAME=<Enter your own value>
 export OCP_PASSWORD=<Enter your own value>
 # export OCP_TOKEN=<enter your token>
-export SERVER_ARGUMENTS=“--server=${OCP_URL}”
-export LOGIN_ARGUMENTS=“--username=${OCP_USERNAME} --password=${OCP_PASSWORD}”
-# export LOGIN_ARGUMENTS=“--token=${OCP_TOKEN}”
-export CPDM_OC_LOGIN=“cpd-cli manage login-to-ocp ${SERVER_ARGUMENTS} ${LOGIN_ARGUMENTS}”
+export SERVER_ARGUMENTS="--server=${OCP_URL}"
+export LOGIN_ARGUMENTS="--username=${OCP_USERNAME} --password=${OCP_PASSWORD}"
+# export LOGIN_ARGUMENTS="--token=${OCP_TOKEN}"
+export CPDM_OC_LOGIN="cpd-cli manage login-to-ocp ${SERVER_ARGUMENTS} ${LOGIN_ARGUMENTS}"
 export OC_LOGIN=“oc login ${SERVER_ARGUMENTS} ${LOGIN_ARGUMENTS}”
 # ------------------------------------------------------------------------------
 # Proxy server
