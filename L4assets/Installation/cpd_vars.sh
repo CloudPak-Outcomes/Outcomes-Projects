@@ -37,7 +37,7 @@ export PROJECT_CERT_MANAGER=ibm-cert-manager
 export PROJECT_LICENSE_SERVICE=ibm-licensing
 export PROJECT_SCHEDULING_SERVICE=ibm-cpd-scheduler
 # export PROJECT_IBM_EVENTS=<enter your IBM Events Operator project>
-# export PROJECT_PRIVILEGED_MONITORING_SERVICE=<enter your privileged monitoring service project>
+export PROJECT_PRIVILEGED_MONITORING_SERVICE=ibm-privileged-monitors
 export PROJECT_CPD_INST_OPERATORS=ibm-common-services
 export PROJECT_CPD_INST_OPERANDS=cpd-edu
 # export PROJECT_CPD_INSTANCE_TETHERED=<enter your tethered project>
@@ -70,7 +70,7 @@ export VERSION=5.1.0
 # Components
 # ------------------------------------------------------------------------------
 export COMPONENTS=ibm-licensing,scheduler,cpfs,cpd_platform
-#export COMPONENTS=ikc_premium,dmc,db2oltp,datalineage,dataproduct
+# export COMPONENTS=ikc_premium,dmc,db2oltp,datalineage,dataproduct
 # export COMPONENTS_TO_SKIP=<component-ID-1>,<component-ID-2>
 # ------------------------------------------------------------------------------
 # watsonx Orchestrate
