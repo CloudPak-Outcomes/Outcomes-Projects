@@ -1,0 +1,5 @@
+# Deloitte ASCEND education materials
+
+The documents in this repo are hands-on labs from two primary sources:
+- [watsonx_governance-Deloitte-Business-Users.pdf](https://github.com/CloudPak-Outcomes/Outcomes-Projects/blob/main/deloitte-ascend/watsonx_governance-Deloitte-Business-Users.pdf) and [watsonx_governance-Deloitte-Technical-Users.pdf](https://github.com/CloudPak-Outcomes/Outcomes-Projects/blob/main/deloitte-ascend/watsonx_governance-Deloitte-Technical-Users.pdf) are from previous enablement sessions run for Deloitte sellers. They were designed to be run as two-day education sessions, one for day-to-day business users working with established configurations, and one for more technical users performing those configurations.
+- The remaining files are from the updated watsonx.governance Level 4 technical training course, updated in July of 2025. They cover in-depth customization options for watsonx.governance, particularly the governance console, and include building workflows, questionnaires, and more from scratch. They also cover configuring monitoring for external models (AWS SageMaker predictive and Azure OpenAI LLM).
